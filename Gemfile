@@ -1,16 +1,14 @@
 source 'https://rubygems.org'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'redcarpet'
 gem 'coderay'
 gem 'markdown-rails'
 gem 'simple_form'
 gem "slim-rails"
 gem 'redcarpet'
-gem 'coderay'
 gem "administrate", "~> 0.2.2"
 gem 'bourbon'
 gem 'neat'
-
+gem 'dotenv-rails', :groups => [:development, :test]
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets

@@ -12,7 +12,6 @@ class TutoDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     title: Field::String,
-    name: Field::String,
     content: Field::Text,
   }.freeze
 
@@ -26,7 +25,6 @@ class TutoDashboard < Administrate::BaseDashboard
     :created_at,
     :updated_at,
     :title,
-    :name,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -36,7 +34,6 @@ class TutoDashboard < Administrate::BaseDashboard
     :created_at,
     :updated_at,
     :title,
-    :name,
     :content,
   ].freeze
 
@@ -45,7 +42,6 @@ class TutoDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :title,
-    :name,
     :content,
   ].freeze
 
