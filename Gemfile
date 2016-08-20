@@ -7,6 +7,9 @@ gem 'simple_form'
 gem "slim-rails"
 gem 'redcarpet'
 gem 'coderay'
+gem "administrate", "~> 0.2.2"
+gem 'bourbon'
+gem 'neat'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets

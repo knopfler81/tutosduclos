@@ -16,3 +16,9 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "scaffolds";
+ @import "landing";
+
+body {
+  padding-top: 40px;
+}
