@@ -1,0 +1,11 @@
+= simple_form_for @tuto do |f|
+  - if @tuto.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@tuto.errors.count, "error")} prohibited this tuto from being saved:"
+      ul
+        - @tuto.errors.full_messages.each do |message|
+          li = message
+
+  = f.input  :title
+  = f.input  :content    
+  = f.button :submit, "Save"

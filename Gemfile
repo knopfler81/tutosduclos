@@ -4,6 +4,9 @@ gem 'redcarpet'
 gem 'coderay'
 gem 'markdown-rails'
 gem 'simple_form'
+gem "slim-rails"
+gem 'redcarpet'
+gem 'coderay'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets

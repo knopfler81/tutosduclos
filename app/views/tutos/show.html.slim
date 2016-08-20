@@ -1,0 +1,6 @@
+p#notice = notice
+
+= @tuto.title
+= markdown(@tuto.content )
+= link_to 'Edit', edit_tuto_path(@tuto)
+= link_to 'Back', tutos_path
