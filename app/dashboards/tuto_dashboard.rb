@@ -11,11 +11,8 @@ class TutoDashboard < Administrate::BaseDashboard
     id: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-<<<<<<< HEAD
     title: Field::String,
-=======
     name: Field::String,
->>>>>>> d2736d999df6e532ce658f9fcff9b8b17a83896c
     content: Field::Text,
   }.freeze
 
@@ -28,11 +25,8 @@ class TutoDashboard < Administrate::BaseDashboard
     :id,
     :created_at,
     :updated_at,
-<<<<<<< HEAD
     :title,
-=======
     :name,
->>>>>>> d2736d999df6e532ce658f9fcff9b8b17a83896c
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -41,11 +35,8 @@ class TutoDashboard < Administrate::BaseDashboard
     :id,
     :created_at,
     :updated_at,
-<<<<<<< HEAD
     :title,
-=======
     :name,
->>>>>>> d2736d999df6e532ce658f9fcff9b8b17a83896c
     :content,
   ].freeze
 
@@ -53,11 +44,8 @@ class TutoDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-<<<<<<< HEAD
     :title,
-=======
     :name,
->>>>>>> d2736d999df6e532ce658f9fcff9b8b17a83896c
     :content,
   ].freeze
 
