@@ -11,16 +11,8 @@
 
   <tbody>
     <% @tutos.each do |tuto| %>
-        <%= tuto.name %>
-      <tr>
-        <td><%= link_to 'Show', tuto %></td>
-        <td><%= link_to 'Edit', edit_tuto_path(tuto) %></td>
-        <td><%= link_to 'Destroy', tuto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= tuto.name %>| <%= link_to 'Show', tuto %><br />
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Tuto', new_tuto_path %>
