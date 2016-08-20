@@ -1,6 +1,9 @@
-p#notice = notice
+.container
+  .row
+    .col-xs-12
 
-= @tuto.title
-= markdown(@tuto.content )
-= link_to 'Edit', edit_tuto_path(@tuto)
-= link_to 'Back', tutos_path
+      h1 = @tuto.title
+      p  = "Posted " + time_ago_in_words(@tuto.created_at) + " ago."
+
+      = markdown(@tuto.content )
+

@@ -1,20 +1,7 @@
-h1 Listing tutos
+.container
+  .row
+    .col-xs-12
+      h1 Awaible Tutorials
+      - @tutos.each do |tuto|
+        h4 = link_to tuto.title, tuto_path(tuto)
 
-table
-  thead
-    tr
-      th
-      th
-      th
-
-  tbody
-    - @tutos.each do |tuto|
-      tr
-      = tuto.title
-        td = link_to 'Show', tuto
-        td = link_to 'Edit', edit_tuto_path(tuto)
-        td = link_to 'Destroy', tuto, data: { confirm: 'Are you sure?' }, method: :delete
-
-br
-
-= link_to 'New Tuto', new_tuto_path

@@ -1,0 +1,22 @@
+.bg-image {
+  background-image    : url("screen.jpg");
+  background-size     : cover;
+  background-repeat   : no-repeat;
+  background-position : center;
+  min-height          : 105vh;
+  z-index             : 1;
+  position            : relative;
+}
+
+.intro {
+
+  padding-top: 40px;
+}
+
+.text-gray {
+  color : #a6a6a6;
+}
+
+.bold {
+  font-weight:  bold;
+}
