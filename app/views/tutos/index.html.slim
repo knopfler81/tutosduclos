@@ -1,7 +1,13 @@
-.container
-  .row
-    .col-xs-12
-      h1 Awaible Tutorials
-      - @tutos.each do |tuto|
-        h4 = link_to tuto.title, tuto_path(tuto)
+
+br
+  .container
+    .row
+      .col-xs-12.col-sm-12
+        h1.text-gray Tutorials
+        br
+      .col-xs-10.col-sm-5.index-background
+        - @tutos.each do |tuto|
+          ol.h4.text-white
+            li
+              h4.text-white = link_to tuto.title, tuto_path(tuto)
 
