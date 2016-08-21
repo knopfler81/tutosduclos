@@ -5,8 +5,8 @@
         h1.text-gray Tutorials
         br
       .col-xs-10.col-sm-5.index-background
-        - @tutos.each do |tuto|
-          ol.h4.text-white
-            li
-              h4.text-white = link_to tuto.title, tuto_path(tuto)
+        ol.h4.text-white
+         - @tutos.each do |tuto|
+          li 
+            h4.text-white = link_to tuto.title, tuto_path(tuto)
 
