@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   namespace :admin do
-    get '', to: 'tutos#index', as: '/'
+    get '', to: 'dashboard#index', as: '/'
     resources :tutos
+    resources :dashboard
   end
 
   resources :tutos

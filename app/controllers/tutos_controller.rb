@@ -6,8 +6,6 @@ class TutosController < ApplicationController
     @tutos = Tuto.all
   end
 
-
-
   def show
     @tuto = Tuto.find(params[:id])
   end
