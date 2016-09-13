@@ -9,4 +9,7 @@ html
   header
     = render partial: "layouts/nav"
   body
+    
+    p.notice = notice
+    p.alert  = alert
     = yield

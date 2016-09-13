@@ -1,19 +1,74 @@
-module Admin
-  class TutosController < Admin::ApplicationController
-    # To customize the behavior of this controller,
-    # simply overwrite any of the RESTful actions. For example:
-    #
-    # def index
-    #   super
-    #   @resources = Tuto.all.paginate(10, params[:page])
-    # end
+class Admin::TutosController < ApplicationController
+  before_action :set_tuto, only: [:show, :edit, :update, :destroy]
 
-    # Define a custom finder by overriding the `find_resource` method:
-    # def find_resource(param)
-    #   Tuto.find_by!(slug: param)
-    # end
-
-    # See https://administrate-docs.herokuapp.com/customizing_controller_actions
-    # for more information
+  if Rails.env.production?
+    http_basic_authenticate_with :name => ENV["ADMIN_NAME"],:password => ENV["ADMIN_PASSWORD"]
+  else
+    http_basic_authenticate_with :name => "admin", :password => "password"
   end
+
+  def index
+    @tutos = Tuto.all
+  end
+
+
+  def show
+    @tuto = Tuto.find(params[:id])
+  end
+
+
+  def new
+    @tuto = Tuto.new
+  end
+
+
+  def edit
+    @tuto = Tuto.find(params[:id])
+  end
+
+
+  def create
+    @tuto = Tuto.new(tuto_params)
+
+    respond_to do |format|
+      if @tuto.save
+        format.html { redirect_to @tuto, notice: 'Tuto was successfully created.' }
+        format.json { render :show, status: :created, location: @tuto }
+      else
+        format.html { render :new }
+        format.json { render json: @tuto.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  def update
+    respond_to do |format|
+      if @tuto.update(tuto_params)
+        format.html { redirect_to @tuto, notice: 'Tuto was successfully updated.' }
+        format.json { render :show, status: :ok, location: @tuto }
+      else
+        format.html { render :edit }
+        format.json { render json: @tuto.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  def destroy
+    @tuto.destroy
+    respond_to do |format|
+      format.html { redirect_to tutos_url, notice: 'Tuto was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    def set_tuto
+      @tuto = Tuto.find(params[:id])
+    end
+
+    def tuto_params
+      params.require(:tuto).permit(:title, :content, :id)
+    end
 end

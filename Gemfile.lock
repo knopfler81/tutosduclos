@@ -50,6 +50,7 @@ GEM
     arel (6.0.3)
     autoprefixer-rails (6.4.0.2)
       execjs
+    bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -68,6 +69,12 @@ GEM
     concurrent-ruby (1.0.2)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
+    devise (4.2.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
     dotenv (2.1.0)
     dotenv-rails (2.1.0)
       dotenv (= 2.1.0)
@@ -110,6 +117,7 @@ GEM
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     normalize-rails (3.0.3)
+    orm_adapter (0.5.0)
     pg (0.18.4)
     pkg-config (1.1.7)
     rack (1.6.4)
@@ -149,6 +157,8 @@ GEM
     rdoc (4.2.2)
       json (~> 1.4)
     redcarpet (3.3.4)
+    responders (2.3.0)
+      railties (>= 4.2.0, < 5.1)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -191,6 +201,8 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.2)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.6)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -201,6 +213,7 @@ DEPENDENCIES
   bourbon
   coderay
   coffee-rails (~> 4.1.0)
+  devise
   dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails

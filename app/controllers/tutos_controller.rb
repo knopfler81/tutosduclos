@@ -1,28 +1,24 @@
 class TutosController < ApplicationController
   before_action :set_tuto, only: [:show, :edit, :update, :destroy]
 
-  # GET /tutos
-  # GET /tutos.json
+
   def index
     @tutos = Tuto.all
   end
 
-  # GET /tutos/1
-  # GET /tutos/1.json
   def show
+    @tuto = Tuto.find(params[:id])
   end
 
-  # GET /tutos/new
+
   def new
     @tuto = Tuto.new
   end
 
-  # GET /tutos/1/edit
+
   def edit
   end
 
-  # POST /tutos
-  # POST /tutos.json
   def create
     @tuto = Tuto.new(tuto_params)
 
@@ -37,8 +33,7 @@ class TutosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tutos/1
-  # PATCH/PUT /tutos/1.json
+
   def update
     respond_to do |format|
       if @tuto.update(tuto_params)
@@ -51,8 +46,7 @@ class TutosController < ApplicationController
     end
   end
 
-  # DELETE /tutos/1
-  # DELETE /tutos/1.json
+
   def destroy
     @tuto.destroy
     respond_to do |format|
@@ -62,13 +56,11 @@ class TutosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_tuto
       @tuto = Tuto.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def tuto_params
-      params.require(:tuto).permit(:title, :content)
+      params.require(:tuto).permit(:title, :content, :id)
     end
 end
