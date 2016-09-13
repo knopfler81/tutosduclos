@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   namespace :admin do
+    get '', to: 'tutos#index', as: '/'
     resources :tutos
-
-    root to: "tutos#index"
   end
 
-  resources :tutos, only: [:show, :index]
+  resources :tutos
 
   root "home#landing"
 

@@ -1,0 +1,1 @@
+json.partial! "tutos/tuto", tuto: @tuto

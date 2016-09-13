@@ -1,12 +1,11 @@
-.bg-image
-  .container
-    .row
-      .col-xs-12.col-sm-12
-        h1.text-gray Tutorials
-        br
-      .col-xs-10.col-sm-5.index-background
-        ol.h4.text-white
-         - @tutos.each do |tuto|
-          li 
-            h4.text-white = link_to tuto.title, tuto_path(tuto)
+.container
+  .row
+    .col-xs-12.col-sm-12
+      h1.text-gray Tutorials 
+      br
+    .col-xs-10.col-sm-5.index-background
+      ol.h6
+       - @tutos.each do |tuto|
+        li 
+          h6 = link_to tuto.title, tuto_path(tuto)
 
