@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
-
-  def index
-    @user = User.all
-  end
-
+  before_action :authenticate_user!
   def show
-    @user = User.find(params_user)
+
+      @user = User.find(current_user)
+
   end
 
   private

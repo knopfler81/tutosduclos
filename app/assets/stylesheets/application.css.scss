@@ -23,9 +23,6 @@ body {
  @import "landing";
  @import "tutos";
 
-body {
-  padding-top: 40px;
-}
 
 ol {
     list-style-type: decimal-leading-zero;
@@ -34,6 +31,7 @@ ol {
 a:hover {
   text-decoration: none
 }
+
 
 .table-actions{
   margin-left: 20%;
@@ -46,3 +44,4 @@ a:hover {
   font-size: 20px;
   color:  #000000 !important;
 }
+
