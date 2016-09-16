@@ -61,6 +61,6 @@ class TutosController < ApplicationController
     end
 
     def tuto_params
-      params.require(:tuto).permit(:title, :content, :id)
+      params.require(:tuto).permit(:title, :content, :id, :user_id)
     end
 end

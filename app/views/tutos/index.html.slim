@@ -3,9 +3,28 @@
     .col-xs-12.col-sm-12
       h1.text-gray Tutorials 
       br
-    .col-xs-10.col-sm-5.index-background
-      ol.h6
-       - @tutos.each do |tuto|
-        li 
-          h6 = link_to tuto.title, tuto_path(tuto)
+      -if user_signed_in?
+        = link_to "Create a tuto", new_tuto_path, class:"btn btn-success"
+  .row
+  
+    table.board
+      thead
+        tr
+          th Title
+          th Theme
+          th User
+          th Rate
+
+    hr
+        
+      tbody
+        - @tutos.each do |tuto|
+          .row
+            .col-xs-4
+              h6 = link_to tuto.title, tuto_path(tuto)
+
+          
+            
+    hr
+
 

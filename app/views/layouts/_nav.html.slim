@@ -21,11 +21,14 @@ nav.navbar.navbar-inverse.navbar-fixed-top
             li
               =link_to "See Tutorials", tutos_path
             li
-              = link_to "Suggest a tutorial"
+              = link_to "Suggest a tutorial", new_tuto_path
             
         li.dropdown       
           a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
-            | Profile
+            -if user_signed_in?
+              = current_user.first_name
+            -else
+             | Profile
             span.caret
           ul.dropdown-menu
             li

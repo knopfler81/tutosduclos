@@ -1,11 +1,19 @@
 class Admin::UsersController < ApplicationController
 
   def index
-    @user = User.all
+    @users = User.all
   end
 
   def show
     @user = User.find(params[:id])
+  end
+
+  def destroy
+    @user.destroy!
+    respond_to do |format|
+      format.html { redirect_to userss_url, notice: 'User was successfully removed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
