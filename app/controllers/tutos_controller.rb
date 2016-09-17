@@ -1,9 +1,10 @@
 class TutosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_tuto, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    @tutos = Tuto.all
+    @tutos = Tuto.all.includes(:user)
   end
 
   def show
@@ -15,11 +16,11 @@ class TutosController < ApplicationController
     @tuto = Tuto.new
   end
 
-
   def edit
   end
 
   def create
+
     @tuto = Tuto.new(tuto_params)
 
     respond_to do |format|

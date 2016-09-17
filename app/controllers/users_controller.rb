@@ -1,16 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   def show
-
-      @user = User.find(current_user)
-
+    @user = User.find(current_user)
   end
 
   def index
-  end
-
-  def full_name
-    first_name + last_name
+    @user = User.all
   end
 
   private

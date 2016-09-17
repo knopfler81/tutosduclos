@@ -18,11 +18,11 @@
       h5
        = @user.email
 
-        
-  .row
-    .col-xs-12
-      h3 My list of tutorials
-      -@tutos.each do |tuto|
-        li 
-          = tuto.title
       
+  -if current_user.tutos != 0
+    .row
+      .col-xs-12
+        h3 My list of tutorials
+          -@tutos.each do |tuto|
+            = tuto.title
+        
