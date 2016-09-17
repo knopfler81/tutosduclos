@@ -5,7 +5,6 @@ class TutosController < ApplicationController
 
   def index
     @tutos = Tuto.all.includes(:user)
-    @user = get_user
   end
 
   def show
@@ -22,7 +21,7 @@ class TutosController < ApplicationController
 
   def create
 
-    @tuto = Tuto.new(tuto_params)    
+    @tuto = Tuto.new(tuto_params)
     respond_to do |format|
       if @tuto.save
         flash[:success] = "Test"
@@ -58,9 +57,9 @@ class TutosController < ApplicationController
   end
 
   private
-    def get_user
-      #@user = User.find(@tuto.user_id)
-    end
+    # def get_user
+    #   @user = User.find(@tuto.user_id)
+    # end
 
     def set_tuto
       @tuto = Tuto.find(params[:id])
