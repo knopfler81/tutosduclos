@@ -22,6 +22,8 @@ class TutosController < ApplicationController
   def create
 
     @tuto = Tuto.new(tuto_params)
+    @tuto.user_id = current_user.id
+
     respond_to do |format|
       if @tuto.save
         flash[:success] = "Test"
