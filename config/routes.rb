@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
-  # devise_for :users
+
+
   namespace :admin do
     get '', to: 'dashboard#index', as: '/'
     resources :tutos
+    resources :users
     resources :dashboard
+  end
+
+  namespace :users do
+    resources :tutos
   end
 
 as :user do
@@ -15,12 +21,13 @@ end
 devise_for :users, skip: [:sessions]
 
 as :user do
-  get     "/login"  => "devise/sessions#new", as: :new_user_session
-  post    "/login"  => "devise/sessions#create", as: :user_session
-  delete  "/logout" => "devise/sessions#destroy", as: :destroy_user_session
+  get     "/account"  => "users#show", as: :account
+  get     "/login"    => "devise/sessions#new", as: :new_user_session
+  post    "/login"    => "devise/sessions#create", as: :user_session
+  delete  "/logout"   => "devise/sessions#destroy", as: :destroy_user_session
 end
 
-
+  resources :users
   resources :tutos
 
   root "home#landing"

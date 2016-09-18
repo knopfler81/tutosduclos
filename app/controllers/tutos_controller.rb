@@ -1,9 +1,10 @@
 class TutosController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_tuto, only: [:show, :edit, :update, :destroy]
 
 
   def index
-    @tutos = Tuto.all
+    @tutos = Tuto.all.includes(:user)
   end
 
   def show
@@ -15,15 +16,17 @@ class TutosController < ApplicationController
     @tuto = Tuto.new
   end
 
-
   def edit
   end
 
   def create
+
     @tuto = Tuto.new(tuto_params)
+    @tuto.user_id = current_user.id
 
     respond_to do |format|
       if @tuto.save
+        flash[:success] = "Test"
         format.html { redirect_to @tuto, notice: 'Tuto was successfully created.' }
         format.json { render :show, status: :created, location: @tuto }
       else
@@ -56,11 +59,15 @@ class TutosController < ApplicationController
   end
 
   private
+    # def get_user
+    #   @user = User.find(@tuto.user_id)
+    # end
+
     def set_tuto
       @tuto = Tuto.find(params[:id])
     end
 
     def tuto_params
-      params.require(:tuto).permit(:title, :content, :id)
+      params.require(:tuto).permit(:title, :content, :id, :user_id)
     end
 end

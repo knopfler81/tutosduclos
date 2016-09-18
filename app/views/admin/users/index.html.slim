@@ -1,0 +1,36 @@
+.container
+
+  table.board
+    thead
+      tr
+        th ID
+        th First Name
+        th Last Name
+        th Email
+        th Admin
+
+        
+  tbody
+  
+  - @users.each do |user|
+    .row
+      .col-xs-1
+        h3
+        = user.id
+      .col-xs-3
+        h3 
+        = user.first_name
+      .col-xs-3
+        h3 
+        = user.last_name
+      .col-xs-3
+        h3 
+        = user.email
+      .col-xs-2
+        h3
+        -if user.admin? == true 
+          span admin
+        -else
+          span user
+          
+    

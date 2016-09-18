@@ -1,0 +1,28 @@
+.container.profile
+  .row
+    .col-xs-3
+      = image_tag ("default_avatar.png"), class: "avatar"
+    .col-xs-9
+      h1
+        = @user.first_name
+        |'s
+        span<>
+        | Profile
+    .col-offset-xs-3.col-xs-9
+      -if current_user.admin? == true
+       h3 Admin
+      h5
+       = @user.first_name
+      h5
+       = @user.last_name
+      h5
+       = @user.email
+
+      
+  -if current_user.tutos != 0
+    .row
+      .col-xs-12
+        h3 My list of tutorials
+          -@tutos.each do |tuto|
+            = tuto.title
+        
