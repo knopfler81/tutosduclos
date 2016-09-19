@@ -11,7 +11,7 @@
     .col-offset-xs-3.col-xs-9
       -if current_user.admin? == true
        h3 Admin
-       = link_to "Mderate Users", users_path, class:"btn btn-danger"
+       = link_to "Moderate Users", users_path(@user), class:"btn btn-danger"
        hr
       h5
        = @user.first_name

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @user = User.find(current_user)
+    @user = User.find(params[:id])
     @tutos= Tuto.all
   end
 
