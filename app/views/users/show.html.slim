@@ -24,7 +24,7 @@
       .col-xs-12
         h3 My list of tutorials
 
-        -@tutos.each do |tuto|
+        -current_user.tutos.each do |tuto|
          li = link_to tuto.title, tuto_path(tuto)
       .col-xs-4 
               
