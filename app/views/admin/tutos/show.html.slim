@@ -1,9 +1,0 @@
-.container
-  .row
-    .col-xs-12
-
-      h1 = @tuto.title
-      p  = "Posted " + time_ago_in_words(@tuto.created_at) + " ago."
-
-      = markdown(@tuto.content )
-
