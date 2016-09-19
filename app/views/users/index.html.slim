@@ -1,0 +1,26 @@
+.container
+  h1 All the users
+  .row
+  table.board
+    thead
+      tr
+        th First Name
+        th Last Name
+        th Email Address
+        th Action on User
+  hr
+      
+    tbody.board
+      -@users.each do |user|
+        .row
+          .col-xs-3
+            = user.first_name
+          .col-xs-3
+            = user.last_name
+          .col-xs-3
+            = user.email
+          .col-xs-1
+            = link_to 'View', user_path(user), class:'btn btn-success'
+          .col-xs-1
+            = link_to 'Remove', user_path(user), class:'btn btn-danger', method: :delete, data: {confirm: "Are you sure?"}
+        hr
