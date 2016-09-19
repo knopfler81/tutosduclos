@@ -9,7 +9,7 @@ class TutosController < ApplicationController
 
   def show
     @tuto = Tuto.find(params[:id])
-    @tuto.user_id = current_user.id
+    @user = User.all
   end
 
 
