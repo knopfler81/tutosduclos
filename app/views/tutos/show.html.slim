@@ -5,6 +5,9 @@
       h3 = @tuto.title
       = markdown(@tuto.content)
       
+      = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-default" do
+        span.glyphicon.glyphicon-heart
+          =@tuto.get_upvotes.size
   -if  @tuto.user_id == current_user.id || current_user.admin? == true
     .row
       .col-xs-2
