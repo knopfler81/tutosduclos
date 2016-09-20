@@ -11,6 +11,7 @@ gem 'neat'
 gem 'devise'
 gem 'pry'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'masonry-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets
