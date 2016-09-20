@@ -27,6 +27,10 @@
           span<>
           = tuto.user.full_name
         br
+        = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-default" do
+          span.glyphicon.glyphicon-heart
+            =@tuto.get_upvotes.size
+        br
     hr
 
 
