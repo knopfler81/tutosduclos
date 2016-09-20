@@ -12,3 +12,22 @@
   color: #ffffff;
 
 }
+
+#tutos{
+  text-align : justify;
+  margin : 0 auto;
+  width : 100%;
+
+  .box{
+    margin : 10px;
+    width : 250px;
+    box-shadow : 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+    border-radius : 7px;
+    text-align : center;}
+    img{
+      border-radius: 2% 2% 0 0;
+      margin-top : 2%;
+      max-width : 95%;
+      height : auto;
+    }
+  }

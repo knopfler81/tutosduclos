@@ -4,7 +4,8 @@ class TutosController < ApplicationController
 
 
   def index
-    @tutos = Tuto.all.includes(:user)
+    @tutos = Tuto.all.includes(:user && :category)
+
   end
 
   def show
@@ -64,7 +65,7 @@ class TutosController < ApplicationController
     @tuto.upvote_by current_user
     redirect_to :back
   end
-  
+
   private
     # def get_user
     #   @user = User.find(@tuto.user_id)
@@ -75,6 +76,6 @@ class TutosController < ApplicationController
     end
 
     def tuto_params
-      params.require(:tuto).permit(:title, :content, :id, :user_id)
+      params.require(:tuto).permit(:title, :content, :id, :user_id, :category_id)
     end
 end

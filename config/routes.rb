@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :users do
-    resources :tutos 
+    resources :tutos
   end
 
   resources :tutos do

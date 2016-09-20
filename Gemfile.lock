@@ -103,6 +103,8 @@ GEM
     markdown-rails (0.2.1)
       rails
       rdiscount (>= 1.6.8, < 2.0)
+    masonry-rails (0.2.4)
+      railties
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -226,6 +228,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   markdown-rails
+  masonry-rails
   neat
   pg
   pry

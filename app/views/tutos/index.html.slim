@@ -5,23 +5,28 @@
       br
       -if user_signed_in?
         = link_to "Create a tuto", new_tuto_path, class:"btn btn-success"
-  .row
   
-    table.board
-      thead
-        tr
-          th Title
-          th User
+  #tutos.transitions-enabled
+    -@tutos.each do |tuto|
+      .box.panel-default
+        -if tuto.category.name == "Ruby"
+          =image_tag("select/ruby.png")
+        -elsif tuto.category.name == "Rails 4"
+          =image_tag("select/rails4.png")
+        -elsif tuto.category.name == "Rails 5"
+          =image_tag("select/rails5.png")
+        -elsif tuto.category.name == "Heroku"
+          =image_tag("select/heroku.png")
+        -elsif tuto.category.name == "AWS"
+          =image_tag("select/aws.png")
+    
 
-    hr
-        
-      tbody
-        - @tutos.each do |tuto|
-          .row
-            .col-xs-4
-              h6 = link_to tuto.title, tuto_path(tuto)
-            .col-xs-4 
-              h6 = tuto.user.full_name
+        h3 = link_to tuto.title, tuto_path(tuto)      
+        h6 
+          | Created by:
+          span<>
+          = tuto.user.full_name
+        br
     hr
 
 
