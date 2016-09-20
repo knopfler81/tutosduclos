@@ -3,11 +3,14 @@
     .col-xs-12
       p  = "Posted " + time_ago_in_words(@tuto.created_at) + " ago."
       h3 = @tuto.title
+      = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-info" do
+        span.glyphicon.glyphicon-heart
+        span<>
+          =@tuto.get_upvotes.size
       = markdown(@tuto.content)
       
-      = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-default" do
-        span.glyphicon.glyphicon-heart
-          =@tuto.get_upvotes.size
+
+          
   -if  @tuto.user_id == current_user.id || current_user.admin? == true
     .row
       .col-xs-2
