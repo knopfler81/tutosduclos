@@ -1,6 +1,6 @@
 class TutosController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_tuto, only: [:show, :edit, :update, :destroy]
+  before_action :set_tuto, only: [:show, :edit, :update, :destroy, :upvote]
 
 
   def index
@@ -59,6 +59,12 @@ class TutosController < ApplicationController
     end
   end
 
+
+  def upvote
+    @tuto.upvote_by current_user
+    redirect_to :back
+  end
+  
   private
     # def get_user
     #   @user = User.find(@tuto.user_id)

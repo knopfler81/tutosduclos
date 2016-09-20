@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
   namespace :users do
-    resources :tutos
+    resources :tutos 
+  end
+
+  resources :tutos do
+    member do
+      put "like", to: "tutos#upvote"
+    end
   end
 
 as :user do
