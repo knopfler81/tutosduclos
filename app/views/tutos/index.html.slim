@@ -1,37 +1,38 @@
 .container
   .row
-    .col-xs-12.col-sm-12
+    .col-xs-12
       h1.text-gray Tutorials 
-      br
+    .col-xs-12
       -if user_signed_in?
         = link_to "Create a tuto", new_tuto_path, class:"btn btn-success"
-  
-  #tutos.transitions-enabled
-    -@tutos.each do |tuto|
-      .box.panel-default
-        -if tuto.category.name == "Ruby"
-          =image_tag("select/ruby.png")
-        -elsif tuto.category.name == "Rails 4"
-          =image_tag("select/rails4.png")
-        -elsif tuto.category.name == "Rails 5"
-          =image_tag("select/rails5.png")
-        -elsif tuto.category.name == "Heroku"
-          =image_tag("select/heroku.png")
-        -elsif tuto.category.name == "AWS-Amazon"
-          =image_tag("select/aws.png")
+      br
+      br
     
+#tutos.transitions-enabled
+  -@tutos.each do |tuto|
+    .box.panel-default
+      -if tuto.category.name == "Ruby"
+        = link_to(image_tag("select/ruby.png"), tuto_path(tuto))
+      -elsif tuto.category.name == "Rails 4"
+        = link_to(image_tag("select/rails4.png"), tuto_path(tuto))
+      -elsif tuto.category.name == "Rails 5"
+        = link_to(image_tag("select/rails5.png"), tuto_path(tuto))
+      -elsif tuto.category.name == "Heroku"
+        = link_to(image_tag("select/heroku.png"), tuto_path(tuto))
+      -elsif tuto.category.name == "AWS-Amazon"
+        = link_to(image_tag("select/aws.png"), tuto_path(tuto))
+  
 
-        h3 = link_to tuto.title, tuto_path(tuto)      
-        h6 
-          | Created by:
-          span<>
-          = tuto.user.full_name
-        br
-        span.glyphicon.glyphicon-heart
+      h3 = link_to tuto.title, tuto_path(tuto), class:"title-link"     
+      h6 
+        | Created by:
         span<>
-        = tuto.get_upvotes.size
-        br
-        br
-      hr
+        = tuto.user.full_name
+      br
+      span.glyphicon.glyphicon-heart
+      span<>
+      = tuto.get_upvotes.size
+      br
+      br
 
 
