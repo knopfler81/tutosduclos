@@ -1,5 +1,5 @@
 class TutosController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create]
   before_action :set_tuto, only: [:show, :edit, :update, :destroy, :upvote]
 
 
