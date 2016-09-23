@@ -5,7 +5,7 @@ class TutosController < ApplicationController
 
   def index
     @tutos = Tuto.all.includes(:user && :category)
-
+    @tutos = Tuto.search(params[:search])
   end
 
   def show
