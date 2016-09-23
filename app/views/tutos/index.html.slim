@@ -6,6 +6,16 @@
       =form_tag tutos_path, :method => 'get' do 
         =text_field_tag :search, params[:search]
         =submit_tag "Search", class:'btn btn-default'
+        
+        = form_tag '/tutos', method: 'get' do
+          select[name="category.id"]
+            - @categories.each do |category|
+              |  <option value="
+              = category.id
+              | ">
+              = category.name
+          input[type="submit" value="Search", class="btn btn-default"]
+          
     .col-xs-12
       -if user_signed_in?
         = link_to "Create a tuto", new_tuto_path, class:"btn btn-success"
