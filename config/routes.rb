@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-
+  
+  resources :users
+  resources :tutos
   namespace :users do
     resources :tutos
   end
@@ -23,8 +25,7 @@ as :user do
 end
   devise_for :users, skip: [:sessions]
 
-  resources :users
-  resources :tutos
+
 
   root "home#landing"
 
