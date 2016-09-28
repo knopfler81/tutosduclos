@@ -13,22 +13,20 @@ class Tuto < ActiveRecord::Base
   def self.search(search)
     if search
       where(["title LIKE ?","%#{search}%"])
-    elsif :ruby
-      where(["name LIKE ?","%{}%"])
-    elsif :rails4
-      where(["name LIKE ?","%"])
-    elsif :rails5
-      where(["name LIKE ?","%"])
-    elsif :heroku
-      where(["name LIKE ?","%"])
-    elsif :aws
-      where(["name LIKE ?","%"])
     else
-
-
-
-
       all
     end
   end
+
+  def self.filter(filter)
+    if filter
+      where(["name LIKE ?", "%#{filter}%"])
+    else
+      all
+    end
+  end
+
 end
+
+
+

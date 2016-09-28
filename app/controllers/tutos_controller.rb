@@ -4,16 +4,50 @@ class TutosController < ApplicationController
 
 
   def index
-    @tutos = Tuto.all.includes(:user && :category) || Tuto.search(params[:search])
-    @categories = Category.all
+  # binding.pry
+    if params[:search]
+      @tutos = Tuto.search(params[:search]).includes(:user, :category)
+    elsif
+      @tutos = Tuto.all.includes(:user, :category)
+    end
 
+    if params[:filter] =="Ruby"
+      @categories = Category.where(name: "Ruby")
+    elsif params[:filter] =="Rails4"
+      @categories = Category.where(name: "Rails4")
+    elsif params[:filter] == "Rails5"
+      @categories = Category.where(name: "Rails5")
+    elsif params[:filter] == "Heroku"
+      @categories = Category.where(name: "Heroku")
+    elsif params[:filter] == "AWS-Amazon"
+      @categories = Category.where(name: "AWS-Amazon")
+    else
+      @categories = Category.all
+    end
+
+
+      #  case params[:filter]
+      #  when "ruby"
+      #   Category.ruby
+      #  when "rails4"
+      #   Category.rails4
+      #  when "rails5"
+      #   Category.rails5
+      #  when "heroku"
+      #   Category.heroku
+      #  when "aws"
+      #   Category.aws
+      #  else
+      #  Category.all
+      #  end
   end
+
+
 
   def show
     @tuto = Tuto.find(params[:id])
     @user = User.all
   end
-
 
   def new
     @tuto = Tuto.new
@@ -38,7 +72,6 @@ class TutosController < ApplicationController
       end
     end
   end
-
 
   def update
     respond_to do |format|
@@ -67,10 +100,9 @@ class TutosController < ApplicationController
     redirect_to :back
   end
 
+
   private
-    # def get_user
-    #   @user = User.find(@tuto.user_id)
-    # end
+
 
     def set_tuto
       @tuto = Tuto.find(params[:id])

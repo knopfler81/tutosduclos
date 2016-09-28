@@ -27,7 +27,6 @@ end
 
   resources :users
   resources :tutos
-
   root "home#landing"
 
 
