@@ -4,29 +4,18 @@ class Tuto < ActiveRecord::Base
   belongs_to :category
   validates :category_id, presence: true
 
-  scope :ruby,   -> { where(category_id: 1)}
-  scope :rails4, -> { where(category_id: 2)}
-  scope :rails5, -> { where(category_id: 3)}
-  scope :heroku, -> { where(category_id: 4)}
-  scope :aws,    -> { where(category_id: 5)}
 
   def self.search(search)
     if search
-      where(["title LIKE ?","%#{search}%"])
+     where(["title LIKE ?","%#{search}%"]).order('created_at DESC')
     else
       all
     end
   end
-
-  def self.filter(filter)
-    if filter
-      where(["name LIKE ?", "%#{filter}%"])
-    else
-      all
-    end
-  end
-
 end
 
-
-
+# scope :ruby,   -> { where(category_id: 1)}
+# scope :rails4, -> { where(category_id: 2)}
+# scope :rails5, -> { where(category_id: 3)}
+# scope :heroku, -> { where(category_id: 4)}
+# scope :aws,    -> { where(category_id: 5)}

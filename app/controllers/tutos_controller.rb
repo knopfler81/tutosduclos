@@ -4,44 +4,20 @@ class TutosController < ApplicationController
 
 
   def index
-  # binding.pry
-    if params[:search]
+  #binding.pry
+    if params[:search].present?
       @tutos = Tuto.search(params[:search]).includes(:user, :category)
-    elsif
+    else
       @tutos = Tuto.all.includes(:user, :category)
     end
 
-    if params[:filter] =="Ruby"
-      @categories = Category.where(name: "Ruby")
-    elsif params[:filter] =="Rails4"
-      @categories = Category.where(name: "Rails4")
-    elsif params[:filter] == "Rails5"
-      @categories = Category.where(name: "Rails5")
-    elsif params[:filter] == "Heroku"
-      @categories = Category.where(name: "Heroku")
-    elsif params[:filter] == "AWS-Amazon"
-      @categories = Category.where(name: "AWS-Amazon")
+    if params[:filter].present?
+      #to be fixed
+      @tutos = Tuto.joins(:category).where('categories.name LIKE ?' , "%#{filter}%")
     else
       @categories = Category.all
     end
-
-
-      #  case params[:filter]
-      #  when "ruby"
-      #   Category.ruby
-      #  when "rails4"
-      #   Category.rails4
-      #  when "rails5"
-      #   Category.rails5
-      #  when "heroku"
-      #   Category.heroku
-      #  when "aws"
-      #   Category.aws
-      #  else
-      #  Category.all
-      #  end
   end
-
 
 
   def show

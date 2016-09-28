@@ -6,12 +6,10 @@
       =form_tag tutos_path, :method => 'get' do 
         =text_field_tag :search, params[:search],  placeholder:"Search by keywords"
         =submit_tag "Search", class:'btn btn-xs btn-default btn-search'
-        
-        -if params[:search].blank?
-        h5.search_message Sorry no tutorial found
+          
     .col-xs-3
       =form_tag tutos_path, :method => 'get' do 
-        =select_tag :filter, options_for_select(Category.all.map{|c| c.name},  params[:filter])
+        =select_tag :filter, options_for_select(Category.all.map{|c| c.name}, params[:filter])
         =submit_tag "Search", class:"btn btn-xs btn-default btn-search"
            
     .col-xs-3
