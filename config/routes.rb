@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  
-  resources :users
+
+
   resources :tutos
   namespace :users do
     resources :tutos
@@ -23,9 +23,10 @@ as :user do
   post    "/login" ,    to: "devise/sessions#create", as: :user_session
   delete  "/logout" ,   to: "devise/sessions#destroy", as: :destroy_user_session
 end
+
   devise_for :users, skip: [:sessions]
 
-
+  resources :users
 
   root "home#landing"
 
