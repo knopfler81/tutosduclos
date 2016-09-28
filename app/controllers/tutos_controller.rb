@@ -12,8 +12,7 @@ class TutosController < ApplicationController
     end
 
     if params[:filter].present?
-      #to be fixed
-      @tutos = Tuto.joins(:category).where('categories.name LIKE ?' , "%#{filter}%")
+      @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:filter])
     else
       @categories = Category.all
     end
@@ -76,6 +75,15 @@ class TutosController < ApplicationController
     redirect_to :back
   end
 
+  # def self.filter(filter)
+  #   if filter
+  #     #where(["name LIKE '%#{filter}%'"]).order('created_at DESC')
+  #     #where("name LIKE '%#{filter}%'").order(created_at: :desc)
+  #    where("name LIKE ?", "%#{filter}%").order('created_at DESC')
+  #   else
+  #     all
+  #   end
+  # end
 
   private
 
