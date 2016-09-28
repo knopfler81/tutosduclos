@@ -2,7 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
+  #binding.pry
     @user = User.find(current_user)
+    #@user = User.find(user_params[:id])
+    #@user = User.find(user_params[:id]) || current_user
     @tutos= Tuto.all
   end
 
@@ -22,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   private
-  def params_user
-    params.require(:users).permit(:first_name, :last_name, :email, :id)
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :id)
   end
 end
