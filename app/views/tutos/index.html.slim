@@ -1,8 +1,18 @@
 .container
   .row
-    .col-xs-12
-      h1.text-gray Tutorials 
-    .col-xs-12
+    h1.text-gray Tutorials 
+  .row.search_banner
+    .col-xs-3
+      =form_tag tutos_path, :method => 'get' do 
+        =text_field_tag :search, params[:search],  placeholder:"Search by keywords"
+        =submit_tag "Search", class:'btn btn-xs btn-default btn-search'
+          
+    .col-xs-3
+      =form_tag tutos_path, :method => 'get' do 
+        =select_tag :filter, options_for_select(Category.all.map{|c| c.name}, params[:filter])
+        =submit_tag "Search", class:"btn btn-xs btn-default btn-search"
+           
+    .col-xs-3
       -if user_signed_in?
         = link_to "Create a tuto", new_tuto_path, class:"btn btn-success"
       br
@@ -12,16 +22,7 @@
 #tutos.transitions-enabled
   -@tutos.each do |tuto|
     .box.panel-default
-      -if tuto.category.name == "Ruby"
-        = link_to(image_tag("select/ruby.png"), tuto_path(tuto))
-      -elsif tuto.category.name == "Rails 4"
-        = link_to(image_tag("select/rails4.png"), tuto_path(tuto))
-      -elsif tuto.category.name == "Rails 5"
-        = link_to(image_tag("select/rails5.png"), tuto_path(tuto))
-      -elsif tuto.category.name == "Heroku"
-        = link_to(image_tag("select/heroku.png"), tuto_path(tuto))
-      -elsif tuto.category.name == "AWS-Amazon"
-        = link_to(image_tag("select/aws.png"), tuto_path(tuto))
+      = link_to image_tag(image_by_category(tuto.category.try(:name))), tuto_path(tuto)
   
 
       h3 = link_to tuto.title, tuto_path(tuto), class:"title-link"     

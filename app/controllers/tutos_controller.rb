@@ -4,15 +4,25 @@ class TutosController < ApplicationController
 
 
   def index
-    @tutos = Tuto.all.includes(:user && :category)
+  #binding.pry
+    if params[:search].present?
+      @tutos = Tuto.search(params[:search]).includes(:user, :category)
+    else
+      @tutos = Tuto.all.includes(:user, :category)
+    end
 
+    if params[:filter].present?
+      @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:filter])
+    else
+      @categories = Category.all
+    end
   end
+
 
   def show
     @tuto = Tuto.find(params[:id])
     @user = User.all
   end
-
 
   def new
     @tuto = Tuto.new
@@ -37,7 +47,6 @@ class TutosController < ApplicationController
       end
     end
   end
-
 
   def update
     respond_to do |format|
@@ -66,10 +75,18 @@ class TutosController < ApplicationController
     redirect_to :back
   end
 
+  # def self.filter(filter)
+  #   if filter
+  #     #where(["name LIKE '%#{filter}%'"]).order('created_at DESC')
+  #     #where("name LIKE '%#{filter}%'").order(created_at: :desc)
+  #    where("name LIKE ?", "%#{filter}%").order('created_at DESC')
+  #   else
+  #     all
+  #   end
+  # end
+
   private
-    # def get_user
-    #   @user = User.find(@tuto.user_id)
-    # end
+
 
     def set_tuto
       @tuto = Tuto.find(params[:id])

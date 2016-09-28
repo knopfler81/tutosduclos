@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:sessions]
 
   resources :users
+  resources :tutos
 
   root "home#landing"
 
