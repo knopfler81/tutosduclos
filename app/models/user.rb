@@ -3,9 +3,9 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  validates :first_name, presence: true
-  validates :last_name,  presence: true
-  validates :nickname,   presence: true
+  validates :first_name, presence: true, length: { minimum: 3, maximum: 20 }
+  validates :last_name,  presence: true, length: { minimum: 3, maximum: 20 }
+  validates :nickname,   presence: true, length: { minimum: 3, maximum: 20 }
   has_many :tutos
 
   def full_name
