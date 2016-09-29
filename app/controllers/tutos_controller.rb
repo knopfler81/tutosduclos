@@ -16,6 +16,13 @@ class TutosController < ApplicationController
     else
       @categories = Category.all
     end
+
+    if params[:select].present?
+      @tutos = Tuto.joins(:user).where('users.nickname LIKE?', params[:select])
+    else
+      @tutos = Tuto.all.includes(:user, :category)
+    end
+
   end
 
 

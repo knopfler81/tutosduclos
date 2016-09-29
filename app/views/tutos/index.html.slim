@@ -2,17 +2,32 @@
   .row
     h1.text-gray Tutorials 
   .row.search_banner
-    .col-xs-3
+    .col-xs-12.col-sm-3
       =form_tag tutos_path, :method => 'get' do 
         =text_field_tag :search, params[:search],  placeholder:"Search by keywords"
         =submit_tag "Search", class:'btn btn-xs btn-default btn-search'
-          
-    .col-xs-3
+        br
+        br
+        
+    .col-xs-12.col-sm-3
       =form_tag tutos_path, :method => 'get' do 
-        =select_tag :filter, options_for_select(Category.all.map{|c| c.name}, params[:filter])
+        =select_tag :select,
+             options_for_select(User.order('nickname ASC').all.map{|u| u.nickname}, params[:select]),
+             { include_blank: 'Select a user' }
+                
+        =submit_tag "Select", class:"btn btn-xs btn-default btn-search"
+        br
+        br
+        
+    .col-xs-12.col-sm-3
+      =form_tag tutos_path, :method => 'get' do 
+        =select_tag :filter, 
+              options_for_select(Category.all.map{|c| c.name}, params[:filter]),
+              { include_blank: 'Select a category' }
         =submit_tag "Search", class:"btn btn-xs btn-default btn-search"
-           
-    .col-xs-3
+        br
+        br
+    .col-xs-12.col-sm-3
       -if user_signed_in?
         = link_to "Create a tuto", new_tuto_path(@tuto), class:"btn btn-success"
       br
@@ -29,7 +44,10 @@
       h6 
         | Created by:
         span<>
-        = tuto.user.full_name
+        = tuto.user.nickname
+      h6
+        span<>
+        =tuto.created_at
       br
       span.glyphicon.glyphicon-heart
       span<>

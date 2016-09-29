@@ -11,14 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920133801) do
+ActiveRecord::Schema.define(version: 20160929124803) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.text     "description"
-    t.string   "image"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tutos", force: :cascade do |t|
@@ -48,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160920133801) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "admin"
+    t.string   "nickname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
