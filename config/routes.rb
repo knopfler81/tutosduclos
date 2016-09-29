@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get "/best_voted", to: "tutos#best_voted"
   resources :tutos
   namespace :users do
     resources :tutos

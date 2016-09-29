@@ -1,0 +1,24 @@
+.container
+  h1 Best voted tutos !
+
+  #tutos.transitions-enabled
+    -@tutos.each do |tuto|
+      -if tuto.get_upvotes.size >= 2
+        .box.panel-default
+          = link_to image_tag(image_by_category(tuto.category.try(:name))), tuto_path(tuto)
+      
+
+          h3 = link_to tuto.title, tuto_path(tuto), class:"title-link"     
+          h6 
+            | Created by:
+            span<>
+            = tuto.user.nickname
+          h6
+            span<>
+            =tuto.created_at
+          br
+          span.glyphicon.glyphicon-heart
+          span<>
+          = tuto.get_upvotes.size
+          br
+          br

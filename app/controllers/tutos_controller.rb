@@ -17,11 +17,12 @@ class TutosController < ApplicationController
       @categories = Category.all
     end
 
-    if params[:select].present?
-      @tutos = Tuto.joins(:user).where('users.nickname LIKE?', params[:select])
-    else
-      @tutos = Tuto.all.includes(:user, :category)
-    end
+
+    # if params[:select].present?
+    #   @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:select])
+    # else
+    #   @tutos = Tuto.all.includes(:user, :category)
+    # end
 
   end
 
@@ -29,6 +30,10 @@ class TutosController < ApplicationController
   def show
     @tuto = Tuto.find(params[:id])
     @user = User.all
+  end
+
+  def best_voted
+    @tutos = Tuto.all
   end
 
   def new
