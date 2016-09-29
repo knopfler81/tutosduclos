@@ -5,10 +5,20 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates :first_name, presence: true
   validates :last_name,  presence: true
+  validates :nickname,   presence: true
   has_many :tutos
 
   def full_name
     "#{first_name} #{last_name} "
   end
+
+  def self.select(select)
+    if select
+     where(["first_name LIKE ?","%#{select}%"])
+    else
+      all
+    end
+  end
+
 
 end

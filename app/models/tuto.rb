@@ -12,6 +12,7 @@ class Tuto < ActiveRecord::Base
       all
     end
   end
+
 end
 
 # scope :ruby,   -> { where(category_id: 1)}
