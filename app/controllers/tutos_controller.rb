@@ -11,18 +11,18 @@ class TutosController < ApplicationController
       @tutos = Tuto.all.includes(:user, :category)
     end
 
+    if params[:select].present?
+      @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:select])
+    else
+      # @tutos = Tuto.all.includes(:user, :category)
+      @category = Category.all
+    end
+
     if params[:filter].present?
       @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:filter])
     else
       @categories = Category.all
     end
-
-
-    # if params[:select].present?
-    #   @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:select])
-    # else
-    #   @tutos = Tuto.all.includes(:user, :category)
-    # end
 
   end
 
