@@ -8,15 +8,22 @@
         =submit_tag "Search", class:'btn btn-xs btn-default btn-search'
         br
         br
+        
     .col-xs-12.col-sm-3
       =form_tag tutos_path, :method => 'get' do 
-        =select_tag :select, options_for_select(User.all.map{|u| u.nickname}, params[:select])
+        =select_tag :select,
+             options_for_select(User.order('nickname ASC').all.map{|u| u.nickname}, params[:select]),
+             { include_blank: 'Select a user' }
+                
         =submit_tag "Select", class:"btn btn-xs btn-default btn-search"
         br
         br
+        
     .col-xs-12.col-sm-3
       =form_tag tutos_path, :method => 'get' do 
-        =select_tag :filter, options_for_select(Category.all.map{|c| c.name}, params[:filter])
+        =select_tag :filter, 
+              options_for_select(Category.all.map{|c| c.name}, params[:filter]),
+              { include_blank: 'Select a category' }
         =submit_tag "Search", class:"btn btn-xs btn-default btn-search"
         br
         br
