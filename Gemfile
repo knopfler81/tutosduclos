@@ -12,6 +12,8 @@ gem 'devise'
 gem 'pry'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'masonry-rails'
+gem 'i18n', '~> 0.7.0'
+gem 'devise-i18n-views'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets

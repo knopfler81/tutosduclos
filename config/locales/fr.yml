@@ -1,0 +1,18 @@
+fr:
+  nav:
+    see-tuto: "Voir les tutoriels"
+    suggest-tuto: "Proposer un tutoriel"
+    login: "Connexion"
+    logout: "Deconnexion"
+    account: "Mon Compte"
+    title-tuto: "Tutoriels"
+    lang: "Language"
+    en: "Anglais"
+    fr: "Français"
+    es: "Espagnol"
+  landing:
+    title: "Cette application est dédiée à Ruby On Rails 4 & 5"
+    line-one: "Bienvenus sur mon site web de tutoriels."
+    line-two: "Ici je regroupe les choses que j'apprends que je juge nécessaire de conserver et de partager"
+    line-three: "Si vous le souhaitez, vous pouvez suggerer et partager vos tutoriels"
+    btn-see: "Voir les tutoriels"
