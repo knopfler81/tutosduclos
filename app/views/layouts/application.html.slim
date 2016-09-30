@@ -10,7 +10,20 @@ html
   header
     = render partial: "layouts/nav"
   body
-  flash(FLASH)
-  
+  - if flash[:notice]
+    .alert.alert-success
+      button.close[type="button" data-dismiss="alert"]
+        | ×
+      = flash[:notice]
+  - elsif flash[:error]
+    .alert.alert-danger
+      button.close[type="button" data-dismiss="alert"]
+        | ×
+      = flash[:error]
+  - elsif flash[:alert]
+    .alert.alert-warning
+      button.close[type="button" data-dismiss="alert"]
+        | ×
+      = flash[:alert]
   = yield
-  = debug(params) if Rails.env.development? 
+  / = debug(params) if Rails.env.development? 
