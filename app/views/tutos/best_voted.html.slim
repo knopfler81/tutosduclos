@@ -1,6 +1,6 @@
 .container
-  h1 Best voted tutos !
-
+  = render "search_form"
+  
   #tutos.transitions-enabled
     -@tutos.each do |tuto|
       -if tuto.get_upvotes.size >= 2
