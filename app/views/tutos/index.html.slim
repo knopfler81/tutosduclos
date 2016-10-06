@@ -1,44 +1,5 @@
 .container
-  .row
-    h1.text-gray Tutorials 
-  .search_banner
-    .row
-      .col-xs-12.col-sm-4
-        =form_tag tutos_path, :method => 'get' do 
-          =text_field_tag :search, params[:search],  placeholder:"Search by keywords", class: 'search-form'
-          =submit_tag "Search", class:'btn btn-xs btn-default btn-search'
-          br
-          br
-          
-      .col-xs-12.col-sm-4
-        =form_tag tutos_path, :method => 'get' do 
-          =select_tag :select,
-               options_for_select(User.order('nickname ASC').all.map{|u| u.nickname}, params[:select]),
-               { include_blank: 'Select a user', class: 'search-form' }
-                  
-          =submit_tag "Select", class:"btn btn-xs btn-default btn-search"
-          br
-          br
-          
-      .col-xs-12.col-sm-4
-        =form_tag tutos_path, :method => 'get' do 
-          =select_tag :filter, 
-                options_for_select(Category.all.map{|c| c.name}, params[:filter]),
-                { include_blank: 'Select a category',  class: 'search-form' }
-                
-          =submit_tag "Search", class:"btn btn-xs btn-default btn-search"
-          br
-          br
-
-    hr  
-    .row
-      .col-xs-12.col-sm-3
-        = link_to "See Best voted tutorials",  best_voted_path, class: "btn btn-default" 
-        
-      .col-xs-12.col-sm-3
-        -if user_signed_in?
-          = link_to "Create a tuto", new_tuto_path(@tuto), class:"btn btn-default"
-    
+  =render  "search_form"
 #tutos.transitions-enabled
   -@tutos.each do |tuto|
     .box.panel-default
@@ -46,8 +7,7 @@
   
 
       h3 = link_to tuto.title, tuto_path(tuto), class:"title-link"     
-      h6 
-        | Created by:
+      h6 = t("index.create_by")
         span<>
         = tuto.user.nickname
       h6
