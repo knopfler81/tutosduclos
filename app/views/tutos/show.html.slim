@@ -1,29 +1,28 @@
+.container
+  .background
+    .row
+      .col-xs-12
+        p  = t("show.post")+ time_ago_in_words(@tuto.created_at) + t("show.ago")
+        h3 = @tuto.title
+        br
+        = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-info" do
+          span.glyphicon.glyphicon-heart
+          span<>
+            =@tuto.get_upvotes.size
+        br
+        br
+        = markdown(@tuto.content)
+        
 
-  .container
-    .background
-      .row
-        .col-xs-12
-          p  = t("show.post")+ time_ago_in_words(@tuto.created_at) + t("show.ago")
-          h3 = @tuto.title
-          br
-          = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-info" do
-            span.glyphicon.glyphicon-heart
-            span<>
-              =@tuto.get_upvotes.size
-          br
-          br
-          = markdown(@tuto.content)
-          
-  
-    .tuto-buttons    
-      .row   
-      -if user_signed_in?   
-        -if @tuto.user_id == current_user.id || current_user.admin? == true
-          .row
-            .col-xs-12.col-sm-2
-              = link_to t("show.button_back"), tutos_path, class: "btn btn-success"
-            .col-xs-12.col-sm-2
-              = link_to t("show.button_edit"), edit_tuto_path, class: "btn btn-warning"
-            .col-xs-12.col-sm-2
-              = link_to t("show.button_delete"), tuto_path(@tuto), data: { confirm: t("show.confirmation_delete")}, method: :delete, class: "btn btn-danger"
-          
+  .tuto-buttons    
+    .row   
+    -if user_signed_in?   
+      -if @tuto.user_id == current_user.id || current_user.admin? == true
+        .row
+          .col-xs-12.col-sm-2
+            = link_to t("show.button_back"), tutos_path, class: "btn btn-success"
+          .col-xs-12.col-sm-2
+            = link_to t("show.button_edit"), edit_tuto_path, class: "btn btn-warning"
+          .col-xs-12.col-sm-2
+            = link_to t("show.button_delete"), tuto_path(@tuto), data: { confirm: t("show.confirmation_delete")}, method: :delete, class: "btn btn-danger"
+        
