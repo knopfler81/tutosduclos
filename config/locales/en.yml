@@ -28,6 +28,8 @@ en:
   tutos_form:
     save: "Save"
     category: "Chose a category"
+    title: "Title"
+    content: "Content"
   index:
     create_by: "Created by:"
   new:

@@ -239,6 +239,8 @@ fr:
   tutos_form:
     save: "Enregistrer"
     category: "Choisir une categorie"
+    title: "Titre"
+    content: "Contenu"
   index:
     create_by: "Créé par:"
   new:
@@ -252,3 +254,5 @@ fr:
     button_edit: "Editer le tuto"
     button_delete: "Supprimer le tuto"
     confirmation_delete: "Etes vous sure?"
+
+

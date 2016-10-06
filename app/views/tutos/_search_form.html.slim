@@ -25,7 +25,7 @@ h1.text-gray =t("search_form.title")
               options_for_select(Category.all.map{|c| c.name}, params[:filter]),
               { include_blank: t("search_form.select_cat"),  class: 'search-form' }
               
-        =submit_tag  t("search_form.search"), class:"btn btn-xs btn-default btn-search"
+        =submit_tag t("search_form.search"), class:"btn btn-xs btn-default btn-search"
         br
         br
 
