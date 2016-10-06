@@ -1,24 +1,3 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   nav:
     see-tuto: "See tutorials"
@@ -37,5 +16,28 @@ en:
     line-two: "Here I will group the things I've learnt and that I juge usfull to keep and share."
     line-three: "If you like you can share and suggest your tutorials."
     btn-see: "See tutorials"
-  sessions:
-    login:"Log In"
+  search_form:
+    title: "Tutorials"
+    search: "Search"
+    keyword: "Search by keywords"
+    select_user: " Select a user"
+    select: "Select"
+    select_cat: "Select a catgory"
+    best: "See best voted tutorials"
+    create: "Create a tuto"
+  tutos_form:
+    save: "Save"
+    category: "Chose a category"
+  index:
+    create_by: "Created by:"
+  new:
+    line_1: "Please write in English only and use markdown to create your tutorial, make sure it's as clear as possible."
+    line_2_html: "If you don't remember how to write markdown have a look %{href}"
+    href: "HERE"
+  show:
+    post: "Posted "
+    ago: " ago."
+    button_back: "Back to list"
+    button_edit: "Edit tutorial"
+    button_delete: "Delete tuto"
+    confirmation_delete: "Are you sure?"

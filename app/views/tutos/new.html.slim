@@ -1,7 +1,7 @@
 .container
   .row
-    h4 Please use markdown to create your tutorial, make sure it's as clear as possible. 
-    h4 if you don't remember how to write markdown have a look #{link_to "HERE", "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"}
+    h4 =t("new.line_1") 
+    h4 =t("new.line_2_html", :href => link_to(t("new.href"), "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"))
     br
     
-    =render "form"
+    =render "tutos_form"

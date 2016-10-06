@@ -8,8 +8,8 @@
           li = message
   = f.hidden_field :user_id, value: current_user.id
   = f.input  :title
-  = f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category"}
+  = f.collection_select :category_id, Category.all, :id, :name, {prompt: t("tutos_form.category")}
   = f.input :content, as: :text, input_html: { rows: "15" }
-  = f.button :submit, "Save"
+  = f.button :submit, t("tutos_form.save")
 
 
