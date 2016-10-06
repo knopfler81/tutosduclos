@@ -231,7 +231,7 @@ fr:
     title: "Tutoriels"
     search: "Recherche"
     keyword: "Recherche par mots clés"
-    select_user: "choisir un utilisateur"
+    select_user: "Choisir un utilisateur"
     select: "Choisir"
     select_cat: "Choisir une catégorie"
     best: "Voir les tutos les mieux votés"
@@ -251,8 +251,8 @@ fr:
     post: "Posté il y a "
     ago: " "
     button_back: "Retour à la liste"
-    button_edit: "Editer le tuto"
-    button_delete: "Supprimer le tuto"
+    button_edit: "Editer le tutoriel"
+    button_delete: "Supprimer le tutoriel"
     confirmation_delete: "Etes vous sure?"
 
 
