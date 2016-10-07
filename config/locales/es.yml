@@ -223,7 +223,7 @@ es:
     fr: "Francés"
     es: "Español"
   landing:
-    title: "Esta aplicación está dedicada a “Ruby on Rails” 4 y 5"
+    title: "Esta aplicación está dedicada a Ruby on Rails 4 y 5"
     line-one: "Bienvenidos a mi sitio web de tutoriales"
     line-two: "aquí agruparé todo lo que he aprendido y que considero útil para compartir"
     line-three: "Si quieren pueden compartir y sugerir tutoriales"
