@@ -223,9 +223,9 @@ es:
     fr: "Francés"
     es: "Español"
   landing:
-    title: "Esta aplicación está dedicada a “Ruby on Rails” 4 y 5"
+    title: "Esta aplicación está dedicada a Ruby on Rails 4 y 5"
     line-one: "Bienvenidos a mi sitio web de tutoriales"
-    line-two: "aquí agruparé todo lo que he aprendido y que considero útil para compartir"
+    line-two: "Aquí agruparé todo lo que he aprendido y que considero útil para compartir"
     line-three: "Si quieren pueden compartir y sugerir tutoriales"
     btn-see: "Ver tutoriales"
   search_form:
@@ -247,7 +247,7 @@ es:
   new:
     line_1: "Por favor, escribir sólo en inglés y elegir para crear tu propio tutorial. Asegurese que es lo más claro posible"
     line_2_html: "Si no recuerda cómo escribir un MARKDOWN echa un vistazo a %{href}"
-    href: "AQUI"
+    href: "Aquí"
   show:
     post: "Posteado "
     ago: " "
