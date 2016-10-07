@@ -247,7 +247,7 @@ es:
   new:
     line_1: "Por favor, escribir sólo en inglés y elegir para crear tu propio tutorial. Asegurese que es lo más claro posible"
     line_2_html: "Si no recuerda cómo escribir un MARKDOWN echa un vistazo a %{href}"
-    href: AQUI"
+    href: "AQUI"
   show:
     post: "Posteado "
     ago: " "
