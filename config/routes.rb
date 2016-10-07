@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
-
-
-
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
     get "/best_voted", to: "tutos#best_voted"
     resources :tutos
@@ -29,7 +25,7 @@ Rails.application.routes.draw do
     delete  "/logout" ,   to: "devise/sessions#destroy", as: :destroy_user_session
   end
 
-    devise_for :users, skip: [:sessions, :omniauth_callbacks]
+    devise_for :users, skip: [:sessions]
 
     resources :users
 

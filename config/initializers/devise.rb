@@ -248,7 +248,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   #  config.omniauth :github, 'AP_KEY', 'AP_SECRET', scope: 'user,public_repo'
-   config.omniauth :facebook, ENV["APP_AUTH_FACEBOOK_KEY"], ENV["APP_AUTH_FACEBOOK_SECRET"]
+   #config.omniauth :facebook, ENV["APP_AUTH_FACEBOOK_KEY"], ENV["APP_AUTH_FACEBOOK_SECRET"]
   #  , callback_url: ENV['CALLBACK_URL'] https://duclostutos.herokuapp.com/users/auth/facebook/callback/
 
 

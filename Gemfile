@@ -25,8 +25,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 #authentication
 gem "devise"
-gem "omniauth-facebook"
-# gem "omniauth-github"
+
 
 group :development do
    gem 'sqlite3'
