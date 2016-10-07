@@ -31,9 +31,6 @@ nav.navbar.navbar-inverse.navbar-fixed-top
              | Profile
             span.caret
           ul.dropdown-menu
-            -if !user_signed_in?
-              li 
-                = link_to "Sign in", register_path
             li
               =link_to t("nav.login"), login_path
             li
