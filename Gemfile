@@ -6,7 +6,6 @@ gem 'markdown-rails'
 gem 'simple_form'
 gem "slim-rails"
 gem 'redcarpet'
-gem 'devise'
 gem 'pry'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'masonry-rails'
@@ -23,6 +22,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 gem 'dotenv-rails', :groups => [:development, :test]
 
+
+#authentication
+gem "devise"
+gem "omniauth-facebook"
+# gem "omniauth-github"
 
 group :development do
    gem 'sqlite3'
