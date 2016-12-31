@@ -1,0 +1,15 @@
+
+= simple_form_for @tuto do |f|
+  - if @tuto.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@tuto.errors.count, "error")} prohibited this tuto from being saved:"
+      ul
+        - @tuto.errors.full_messages.each do |message|
+          li = message
+  = f.hidden_field :user_id, value: current_user.id
+  = f.input :title, label: t('tutos_form.title')
+  = f.collection_select :category_id, Category.all, :id, :name, { include_blank: t("tutos_form.category"), class: 'search-form' }
+  = f.input :content, label: t('tutos_form.content'), as: :text, input_html: { rows: "15" }
+  = f.button :submit, t("tutos_form.save")
+
+
