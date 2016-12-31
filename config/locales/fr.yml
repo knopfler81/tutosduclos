@@ -242,7 +242,8 @@ fr:
     title: "Titre"
     content: "Contenu"
   index:
-    create_by: "Créé par:"
+    create_by: "Créé par: "
+    create_at: "Créé à: "
   new:
     line_1: "Merci  d'écrire en Anglais uniquement et d'utiliser le mardown pour créer votre tutoriel, assurez-vous qu'il soit le plis clair possible"
     line_2_html: "Si vous ne savez pas comment écrire le markdown jettez un oeil %{href}"

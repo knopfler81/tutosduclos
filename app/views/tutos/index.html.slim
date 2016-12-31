@@ -7,12 +7,8 @@
   
 
       h3 = link_to tuto.title, tuto_path(tuto), class:"title-link"     
-      h6 = t("index.create_by")
-        span<>
-        = tuto.user.nickname
-      h6
-        span<>
-        =tuto.created_at
+      h6 = t("index.create_by") + tuto.user.nickname
+      h6 = t("index.create_at") + tuto.created_at.to_s
       br
       span.glyphicon.glyphicon-heart
       span<>
