@@ -31,7 +31,8 @@ en:
     title: "Title"
     content: "Content"
   index:
-    create_by: "Created by:"
+    create_by: "Created by: "
+    create_at: "Created at: "
   new:
     line_1: "Please write in English only and use markdown to create your tutorial, make sure it's as clear as possible."
     line_2_html: "If you don't remember how to write markdown have a look %{href}"
