@@ -4,7 +4,6 @@ class TutosController < ApplicationController
 
 
   def index
-  #binding.pry
     if params[:search].present?
       @tutos = Tuto.search(params[:search]).includes(:user, :category)
     else
@@ -14,7 +13,6 @@ class TutosController < ApplicationController
     if params[:select].present?
       @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:select])
     else
-      # @tutos = Tuto.all.includes(:user, :category)
       @category = Category.all
     end
 
