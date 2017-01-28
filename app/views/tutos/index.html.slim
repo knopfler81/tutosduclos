@@ -7,7 +7,7 @@
 
       h4 = link_to tuto.title, tuto_path(tuto), class:"title-link"
       .box-body
-        .user-name = " Author: #{tuto.user.nickname}"
+        .user-name = "Author: #{tuto.user.nickname}"
         h6 = "Create on the #{tuto.created_at.strftime('%d %B %Y')}"
         h6 = "At #{tuto.created_at.strftime('%H:%M:%S')}"
 
