@@ -42,7 +42,6 @@ class TutosController < ApplicationController
   end
 
   def create
-
     @tuto = Tuto.new(tuto_params)
     @tuto.user_id = current_user.id
 
