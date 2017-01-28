@@ -2,7 +2,7 @@
   .background
     .row
       .col-xs-12
-        p  = t("show.post")+ time_ago_in_words(@tuto.created_at) + t("show.ago")
+        p  = t("show.post")+ time_ago_in_words(@tuto.created_at) + t("show.ago") +  t("show.by") + " #{@tuto.user.nickname}"
         h3 = @tuto.title.capitalize
         br
         = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-info" do

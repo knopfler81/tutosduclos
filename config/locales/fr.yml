@@ -250,6 +250,7 @@ fr:
     href: "ICI"
   show:
     post: "Posté il y a "
+    by: "par"
     ago: " "
     button_back: "Retour à la liste"
     button_edit: "Editer le tutoriel"

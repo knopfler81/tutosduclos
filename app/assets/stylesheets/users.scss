@@ -4,6 +4,12 @@
 .profile {
   margin-top: 50px;
 }
-.avatar {
+.avatar_big {
   width :  150px;
+  border-radius: 50%;
+}
+
+.avatar_small {
+  border-radius: 50% !important;
+  width: 30px !important;
 }
