@@ -12,7 +12,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
 
 
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      ul.nav.navbar-nav.navbar-right    
+      ul.nav.navbar-nav.navbar-right
         li.dropdown
           a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
             = t("nav.title-tuto")
@@ -22,11 +22,11 @@ nav.navbar.navbar-inverse.navbar-fixed-top
               =link_to  t("nav.see-tuto"), tutos_path
             li
               = link_to t("nav.suggest-tuto"), new_tuto_path
-            
-        li.dropdown       
+
+        li.dropdown
           a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
             -if user_signed_in?
-              = current_user.first_name
+              = image_tag(current_user.avatar.url(:thumb), class: "avatar_small")
             -else
              | Profile
             span.caret
@@ -34,8 +34,10 @@ nav.navbar.navbar-inverse.navbar-fixed-top
             li
               =link_to t("nav.login"), login_path
             li
+              =link_to "edit", edit_user_registration_path
+            li
               =link_to t("nav.logout"), logout_path
-            li 
+            li
               = link_to t("nav.account"), account_path
         li.dropdown
           a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
@@ -51,4 +53,4 @@ nav.navbar.navbar-inverse.navbar-fixed-top
 
 
 
-  
+

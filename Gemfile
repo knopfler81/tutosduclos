@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails_12factor', group: :production
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'paperclip', '~> 4.1'
+
 
 
 #authentication
