@@ -1,7 +1,7 @@
 .container
   =render  "search_form"
 #tutos.transitions-enabled
-  -@tutos.each do |tuto|
+  -@tutos.by_date.each do |tuto|
     .box.panel-default
       = link_to image_tag(image_by_category(tuto.category.try(:name))), tuto_path(tuto)
 
@@ -16,6 +16,4 @@
         = tuto.get_upvotes.size
         br
         br
-/ h6 = t("index.create_by") + tuto.user.nickname
-/ h6 = t("index.create_at") + tuto.created_at.to_s
 

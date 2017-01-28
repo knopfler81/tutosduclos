@@ -4,7 +4,7 @@ class Tuto < ActiveRecord::Base
   belongs_to :category
   validates :category_id, presence: true
 
-
+  scope :by_date, -> { order(created_at: :desc) }
 
   def self.search(search)
     if search
