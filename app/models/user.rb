@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :last_name,  presence: true, length: { minimum: 3, maximum: 20 }
   validates :nickname,   presence: true, length: { minimum: 3, maximum: 20 }
   has_many :tutos
-
+  attr_accessor :avatar_file_nam
 
   def full_name
     "#{first_name} #{last_name} "
