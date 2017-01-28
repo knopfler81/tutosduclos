@@ -8,7 +8,7 @@ class Tuto < ActiveRecord::Base
 
   def self.search(search)
     if search
-     where(["title LIKE ?","%#{search}%"]).order('created_at DESC')
+     where(["lower(title) LIKE ?","%#{search.downcase}%"]).order('created_at DESC')
     else
       all
     end
