@@ -4,16 +4,18 @@
   -@tutos.each do |tuto|
     .box.panel-default
       = link_to image_tag(image_by_category(tuto.category.try(:name))), tuto_path(tuto)
-  
 
-      h3 = link_to tuto.title, tuto_path(tuto), class:"title-link"     
-      h6 = t("index.create_by") + tuto.user.nickname
-      h6 = t("index.create_at") + tuto.created_at.to_s
-      br
-      span.glyphicon.glyphicon-heart
-      span<>
-      = tuto.get_upvotes.size
-      br
-      br
+      h4 = link_to tuto.title, tuto_path(tuto), class:"title-link"
+      .box-body
+        .user-name = " Author: #{tuto.user.nickname}"
+        h6 = "Create on the #{tuto.created_at.strftime('%d %B %Y')}"
+        h6 = "At #{tuto.created_at.strftime('%H:%M:%S')}"
 
+        span.glyphicon.glyphicon-heart.heart
+        span<>
+        = tuto.get_upvotes.size
+        br
+        br
+/ h6 = t("index.create_by") + tuto.user.nickname
+/ h6 = t("index.create_at") + tuto.created_at.to_s
 
