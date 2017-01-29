@@ -25,7 +25,7 @@
   -if current_user.tutos != 0
     .row
       .col-xs-12
-        h3 My list of tutorials
+        h3 My list of tutorials & memos
 
         -current_user.tutos.each do |tuto|
          li = link_to tuto.title, tuto_path(tuto)
