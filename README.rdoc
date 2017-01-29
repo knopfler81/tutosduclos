@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+In production you'll need to create the categories in the console.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+rails4 = Category.new(name: "Rails 4")
+rails4.save
+
+rails5 = Category.new(name: "Rails 5")
+rails5.save
+
+heroku = Category.new(name: "Heroku")
+heroku.save
+
+aws = Category.new(name: "AWS-Amazon")
+aws.save
+
+shell= Category.new(name: "Console/Shell")
+shell.save
+
+ruby= Category.new(name: "Ruby")
+ruby.save
+
+
+rake db:migrate

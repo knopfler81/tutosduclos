@@ -25,11 +25,12 @@ module ApplicationHelper
 
   def image_by_category(name)
     images = {
-      "Ruby" => "select/ruby.png",
-      "Rails4" => "select/rails4.png",
-      "Rails5" => "select/rails5.png",
-      "Heroku" => "select/heroku.png",
-      "AWS-Amazon" => "select/aws.png"
+      "Ruby"            => "select/ruby.png",
+      "Rails4"          => "select/rails4.png",
+      "Rails5"          => "select/rails5.png",
+      "Heroku"          => "select/heroku.png",
+      "AWS-Amazon"      => "select/aws.png",
+      "Console/Shell"   => "select/shell.png"
     }
     images[name]
   end
