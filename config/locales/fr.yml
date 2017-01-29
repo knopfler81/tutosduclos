@@ -211,24 +211,24 @@ fr:
     pm: pm
 
   nav:
-    see-tuto: "Voir les tutoriels"
-    suggest-tuto: "Proposer un tutoriel"
+    see-tuto: "Voir les tutoriels & mémos"
+    suggest-tuto: "Proposer un tutoriel ou un mémo"
     login: "Connexion"
     logout: "Deconnexion"
     account: "Mon Compte"
-    title-tuto: "Tutoriels"
+    title-tuto: "Tutoriels & Mémos"
     lang: "Language"
     en: "Anglais"
     fr: "Français"
     es: "Espagnol"
   landing:
     title: "Cette application est dédiée à Ruby On Rails 4 & 5"
-    line-one: "Bienvenus sur mon site web de tutoriels."
+    line-one: "Bienvenus sur mon site web de tutoriels et mémos."
     line-two: "Ici je regroupe les choses que j'apprends que je juge nécessaire de conserver et de partager"
-    line-three: "Si vous le souhaitez, vous pouvez suggerer et partager vos tutoriels"
-    btn-see: "Voir les tutoriels"
+    line-three: "Si vous le souhaitez, vous pouvez suggerer et partager les votres."
+    btn-see: "Entrer"
   search_form:
-    title: "Tutoriels"
+    title: "Tutoriels & Mémos"
     search: "Recherche"
     keyword: "Recherche par mots clés"
     select_user: "Choisir un utilisateur"
@@ -236,6 +236,7 @@ fr:
     select_cat: "Choisir une catégorie"
     best: "Voir les tutos les mieux votés"
     create: "Créer un tuto"
+    all: "Voir tous"
   tutos_form:
     save: "Enregistrer"
     category: "Choisir une categorie"
@@ -245,7 +246,7 @@ fr:
     create_by: "Créé par: "
     create_at: "Créé à: "
   new:
-    line_1: "Merci  d'écrire en Anglais uniquement et d'utiliser le mardown pour créer votre tutoriel, assurez-vous qu'il soit le plis clair possible"
+    line_1: "Merci  d'écrire en Anglais uniquement et d'utiliser le mardown pour créer votre tutoriel ou mémo, assurez-vous qu'il soit le plis clair possible"
     line_2_html: "Si vous ne savez pas comment écrire le markdown jettez un oeil %{href}"
     href: "ICI"
   show:
@@ -253,8 +254,8 @@ fr:
     by: "par"
     ago: " "
     button_back: "Retour à la liste"
-    button_edit: "Editer le tutoriel"
-    button_delete: "Supprimer le tutoriel"
+    button_edit: "Editer"
+    button_delete: "Supprimer"
     confirmation_delete: "Etes vous sure?"
 
 

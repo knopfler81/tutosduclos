@@ -12,7 +12,7 @@ h1.text-gray =t("search_form.title")
     .col-xs-12.col-sm-4
       =form_tag tutos_path, :method => 'get' do
         =select_tag :select,
-             options_for_select(User.order('nickname ASC').all.map{|u| u.nickname}, params[:select]),
+             options_for_select(User.order('nickname ASC').all.map {|u| u.nickname}, params[:select]),
              { include_blank: t("search_form.select_user"), class: 'search-form' }
 
         =submit_tag t("search_form.select"), class:"btn btn-xs btn-default btn-search"
@@ -22,7 +22,7 @@ h1.text-gray =t("search_form.title")
     .col-xs-12.col-sm-4
       =form_tag tutos_path, :method => 'get' do
         =select_tag :filter,
-              options_for_select(Category.all.map{|c| c.name}, params[:filter]),
+              options_for_select(Category.all.map {|c| c.name}, params[:filter]),
               { include_blank: t("search_form.select_cat"),  class: 'search-form' }
 
         =submit_tag t("search_form.search"), class:"btn btn-xs btn-default btn-search"
@@ -31,10 +31,14 @@ h1.text-gray =t("search_form.title")
 
   hr
   .row
+
+    .col-xs-12.col-sm-2
+        -if user_signed_in?
+          = link_to t("search_form.create"), new_tuto_path, class:"btn btn-success"
+
     .col-xs-12.col-sm-3
       = link_to t("search_form.best"),  best_voted_path, class: "btn btn-default"
 
-    .col-xs-12.col-sm-3
-      -if user_signed_in?
-        = link_to t("search_form.create"), new_tuto_path, class:"btn btn-default"
 
+    .col-xs-12.col-sm-3
+      = link_to t("search_form.all"), tutos_path, class:"btn btn-default"
