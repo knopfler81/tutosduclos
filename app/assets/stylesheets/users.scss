@@ -11,5 +11,10 @@
 
 .avatar_small {
   border-radius: 50% !important;
-  width: 30px !important;
+  width: 30px;
+  padding: 5px;
+}
+
+.user-nickname {
+  font-size: 12px;
 }

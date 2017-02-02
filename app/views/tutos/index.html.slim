@@ -1,20 +1,20 @@
 .container
   =render  "search_form"
-#tutos.transitions-enabled
-  -@tutos.by_date.each do |tuto|
-    .box.panel-default
-      = link_to image_tag(image_by_category(tuto.category.try(:name))), tuto_path(tuto)
+  #tutos.transitions-enabled
+    -@tutos.by_date.each do |tuto|
+      .box
+        h4 = link_to tuto.title.capitalize, tuto_path(tuto), class:"title-link"
+        .box-body
+          = link_to image_tag(image_by_category(tuto.category.try(:name))), tuto_path(tuto)
+          h6 = "Added on #{tuto.created_at.strftime('%d %B %Y')}"
 
-      h4 = link_to tuto.title.capitalize, tuto_path(tuto), class:"title-link"
-      .box-body
-        = image_tag(tuto.user.avatar.url(:thumb),  class: "avatar_small") + " " + "#{tuto.user.nickname}"
-
-        h6 = "Create on the #{tuto.created_at.strftime('%d %B %Y')}"
-        h6 = "At #{tuto.created_at.strftime('%H:%M:%S')}"
-
-        span.glyphicon.glyphicon-heart.heart
-        span<>
-        = tuto.get_upvotes.size
-        br
-        br
+        .box-footer
+          hr
+          .col-xs-6
+            = image_tag(tuto.user.avatar.url(:thumb),  class: "avatar_small")
+            = tuto.user.nickname
+          .col-xs-6
+            span.glyphicon.glyphicon-heart.heart
+            span<><>
+            = tuto.get_upvotes.size
 

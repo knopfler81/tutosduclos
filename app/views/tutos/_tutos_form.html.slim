@@ -11,5 +11,3 @@
   = f.collection_select :category_id, Category.all, :id, :name, { include_blank: t("tutos_form.category"), class: 'search-form' }
   = f.input :content, label: t('tutos_form.content'), as: :text, input_html: { rows: "15" }
   = f.button :submit, t("tutos_form.save")
-
-
