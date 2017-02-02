@@ -6,7 +6,7 @@
         h4 = link_to tuto.title.capitalize, tuto_path(tuto), class:"title-link"
         .box-body
           = link_to image_tag(image_by_category(tuto.category.try(:name))), tuto_path(tuto)
-          h6 = "Added on #{tuto.created_at.strftime('%d %B %Y')}"
+          h6 = tuto.created_at.strftime('%m/%d/%Y')
 
         .box-footer
           hr
