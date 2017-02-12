@@ -3,18 +3,21 @@
   #tutos.transitions-enabled
     -@tutos.by_date.each do |tuto|
       .box
-        h4 = link_to tuto.title.capitalize, tuto_path(tuto), class:"title-link"
         .box-body
-          = link_to image_tag(image_by_category(tuto.category.try(:name))), tuto_path(tuto)
-          h6 = tuto.created_at.strftime('%m/%d/%Y')
+        = link_to tuto_path(tuto) do
+        h4.title-link
+          = tuto.title.capitalize
+          = image_tag(image_by_category(tuto.category.try(:name)))
 
+          h6 = tuto.created_at.strftime('%m/%d/%Y')
         .box-footer
           hr
-          .col-xs-6
-            = image_tag(tuto.user.avatar.url(:thumb),  class: "avatar_small")
+          .col-xs-8.devided-footer-left
+            = image_tag(tuto.user.avatar.url(:thumb), class: "avatar_small")
             = tuto.user.nickname
-          .col-xs-6
+          .col-xs-4
             span.glyphicon.glyphicon-heart.heart
-            span<><>
+            span<>
             = tuto.get_upvotes.size
+
 

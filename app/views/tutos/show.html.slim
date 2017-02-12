@@ -8,7 +8,7 @@
         = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-info" do
           span.glyphicon.glyphicon-heart
           span<>
-            =@tuto.get_upvotes.size
+            = @tuto.get_upvotes.size
         br
         br
         = markdown(@tuto.content)
