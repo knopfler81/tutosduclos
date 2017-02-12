@@ -5,8 +5,9 @@
       .box
         .box-body
         = link_to tuto_path(tuto) do
-          h4.title-link
-            = tuto.title.capitalize
+          .row.title-link
+            h4 = tuto.title.capitalize
+          .row.image
             = image_tag(image_by_category(tuto.category.try(:name)))
 
           h6 = tuto.created_at.strftime('%m/%d/%Y')
