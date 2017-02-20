@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   #scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
   root "home#landing"
-  devise_for :users,  controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }, skip: [:sessions]
-
+  devise_for :users, skip: :sessions , controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   get "/best_voted", to: "tutos#best_voted"
+
   resources :tutos
   namespace :users do
     resources :tutos
@@ -18,8 +18,8 @@ Rails.application.routes.draw do
     end
   end
 
- get     "/account",   to: "users#show", as: :account
-
+ get   "/account",   to: "users#show", as: :account
+ get   "/logout" ,   to: "devise/sessions#destroy"
 
 
   #end
