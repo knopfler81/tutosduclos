@@ -6,7 +6,9 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   devise :omniauthable, omniauth_providers: [:facebook]
+
 
   validates :nickname,   presence: true, length: { minimum: 3, maximum: 20 }
   has_many :tutos
