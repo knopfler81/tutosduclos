@@ -23,11 +23,11 @@ gem 'rails_12factor', group: :production
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'paperclip', '~> 4.1'
 
-
+gem 'figaro'
 
 #authentication
 gem "devise"
-
+gem 'omniauth-facebook'
 
 group :development do
    gem 'sqlite3'
