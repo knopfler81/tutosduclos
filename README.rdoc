@@ -3,10 +3,10 @@
 In production you'll need to create the categories in the console.
 
 
-rails4 = Category.new(name: "Rails 4")
+rails4 = Category.new(name: "Rails4")
 rails4.save
 
-rails5 = Category.new(name: "Rails 5")
+rails5 = Category.new(name: "Rails5")
 rails5.save
 
 heroku = Category.new(name: "Heroku")
