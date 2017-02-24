@@ -1,7 +1,7 @@
 .container.profile
   .row
     .col-xs-3
-      = image_tag(current_user.avatar.url(:thumb), class: "avatar_big")
+      = image_tag(current_user.facebook_picture_url || current_user.avatar.url(:thumb), class: "avatar_big")
     .col-xs-9
       h1
         = @user.first_name
