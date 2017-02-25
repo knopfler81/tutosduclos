@@ -1,19 +1,17 @@
-
 .bg-image
   .container
-
-    .row.intro
-      .col-xs-12.col-sm-offset-2.col-sm-6
-        h1.text-gray TUTOS MEMOS
-        br
-        h4.text-gray =t("landing.title")
-        p.text-gray  =t("landing.line-one")
-        p.text-gray  =t("landing.line-two")
-        p.text-gray  =t("landing.line-three")
-    br
-    br
     .row
-      .col-xs-12.col-sm-offset-4
-        =link_to t("landing.btn-see"), tutos_path, class:"btn btn-success"
+      .col-xs-12.col-sm-10.col-sm-offset-1
+        h1.landing-title TUTOS & MEMOS
+    .row
+      .col-xs-12.col-sm-10.col-sm-offset-1.text-center
+        .landing-button.text-center
+          =link_to t("landing.btn-see"), tutos_path, class:"btn btn-success"
 
 
+
+    / .row
+    /   .col-xs-12.col-sm-4
+    /     = simple_form_for :search, url: tutos_path, method: :get,  wrapper: :inline_form, html: {class: 'form-inline'} do |f|
+    /       = f.input :tutos, placeholder: "Find a tuto"
+    /       = f.button :submit, "Find", class:"btn btn-warning"

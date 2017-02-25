@@ -1,23 +1,22 @@
 .bg-image {
-  margin-top          : -55px;
-  background-image    : image-url("screen.jpg");
-  background-size     : cover;
-  background-repeat   : no-repeat;
-  background-position : center;
-  min-height          : 105vh;
-  z-index             : 1;
-  position            : relative;
+  margin-top            : -55px;
+  height                : 100vh;
+  background-image      : image-url("screen.png");
+  background-size       : cover;
+  background-repeat     : no-repeat;
+  background-position   : center;
+  background-attachment : fixed;
 }
 
-.intro {
-
-  padding-top: 40px;
+.landing-title {
+  color : #fff;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 50px;
+  margin-top: 250px;
 }
 
-.text-gray {
-  color : #656262;
+.landing-button {
+  margin-top: 30px;
 }
 
-.bold {
-  font-weight:  bold;
-}
