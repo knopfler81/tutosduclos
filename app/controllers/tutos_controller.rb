@@ -4,24 +4,8 @@ class TutosController < ApplicationController
 
 
   def index
-    if params[:search].present?
-      @tutos = Tuto.search(params[:search]).includes(:user, :category)
-    else
-      @tutos = Tuto.all.includes(:user, :category)
-    end
-
-    if params[:select].present?
-      @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:select])
-    else
-      @category = Category.all
-    end
-
-    if params[:filter].present?
-      @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:filter])
-    else
-      @categories = Category.all
-    end
-
+    @tutos = Tuto.all
+    filter_tutos
   end
 
 
@@ -86,6 +70,11 @@ class TutosController < ApplicationController
 
   private
 
+    def filter_tutos
+       @tutos = Tuto.search(params[:query][:keyword]).includes(:user, :category) if params[:query][:keyword].present?
+       @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:query][:user]) if params[:query][:user].present?
+       @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:query][:category]) if params[:query][:category].present?
+    end
 
     def set_tuto
       @tuto = Tuto.find(params[:id])

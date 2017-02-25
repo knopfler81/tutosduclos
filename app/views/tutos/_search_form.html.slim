@@ -2,43 +2,16 @@
 h1.text-gray =t("search_form.title")
 .search_banner
   .row
-    .col-xs-12.col-sm-4
-      =form_tag tutos_path, :method => 'get' do
-        =text_field_tag :search, params[:search],  placeholder: t("search_form.keyword"), class: 'search-form'
-        =submit_tag t("search_form.search"), class:'btn btn-xs btn-default btn-search'
-        br
-        br
+    .col-xs-12
+      = simple_form_for :query, url: tutos_path, method: :get,  wrapper: :inline_form, html: {class: 'form-inline'} do |f|
+        = f.input  :keyword, placeholder: "Keyword"
+        = f.input  :category, collection: (Category.all.map {|c| c.name}) ,  prompt: "Select a category"
+        = f.input  :user, collection: (User.order('nickname ASC').all.map {|u| u.nickname}), prompt: "Select a user"
+        = f.button :submit, "Find", class:"btn btn-warning"
+        = link_to t("search_form.best"),  best_voted_path, class: "btn btn-default"
 
-    .col-xs-12.col-sm-4
-      =form_tag tutos_path, :method => 'get' do
-        =select_tag :select,
-             options_for_select(User.order('nickname ASC').all.map {|u| u.nickname}, params[:select]),
-             { include_blank: t("search_form.select_user"), class: 'search-form' }
 
-        =submit_tag t("search_form.select"), class:"btn btn-xs btn-default btn-search"
-        br
-        br
-
-    .col-xs-12.col-sm-4
-      =form_tag tutos_path, :method => 'get' do
-        =select_tag :filter,
-              options_for_select(Category.all.map {|c| c.name}, params[:filter]),
-              { include_blank: t("search_form.select_cat"),  class: 'search-form' }
-
-        =submit_tag t("search_form.search"), class:"btn btn-xs btn-default btn-search"
-        br
-        br
-
-  hr
-  .row
-
-    .col-xs-12.col-sm-2
         -if user_signed_in?
           = link_to t("search_form.create"), new_tuto_path, class:"btn btn-success"
 
-    .col-xs-12.col-sm-3
-      = link_to t("search_form.best"),  best_voted_path, class: "btn btn-default"
 
-
-    .col-xs-12.col-sm-3
-      = link_to t("search_form.all"), tutos_path, class:"btn btn-default"
