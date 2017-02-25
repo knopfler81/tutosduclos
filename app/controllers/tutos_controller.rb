@@ -6,6 +6,7 @@ class TutosController < ApplicationController
   def index
     @tutos = Tuto.all
     filter_tutos
+
   end
 
 
@@ -71,9 +72,9 @@ class TutosController < ApplicationController
   private
 
     def filter_tutos
-       @tutos = Tuto.search(params[:query][:keyword]).includes(:user, :category) if params[:query][:keyword].present?
-       @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:query][:user]) if params[:query][:user].present?
-       @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:query][:category]) if params[:query][:category].present?
+      @tutos = Tuto.search(params[:query][:keyword]).includes(:user, :category) if params[:query][:keyword].present?
+      @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:query][:user]) if params[:query][:user].present?
+      @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:query][:category]) if params[:query][:category].present?
     end
 
     def set_tuto
