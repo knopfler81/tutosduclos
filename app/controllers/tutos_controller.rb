@@ -6,7 +6,6 @@ class TutosController < ApplicationController
   def index
     @tutos = Tuto.all
     filter_tutos
-
   end
 
 
@@ -34,10 +33,8 @@ class TutosController < ApplicationController
       if @tuto.save
         flash[:success] = "Test"
         format.html { redirect_to @tuto, notice: 'Tuto was successfully created.' }
-        format.json { render :show, status: :created, location: @tuto }
       else
         format.html { render :new }
-        format.json { render json: @tuto.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -46,10 +43,8 @@ class TutosController < ApplicationController
     respond_to do |format|
       if @tuto.update(tuto_params)
         format.html { redirect_to @tuto, notice: 'Tuto was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tuto }
       else
         format.html { render :edit }
-        format.json { render json: @tuto.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -59,7 +54,6 @@ class TutosController < ApplicationController
     @tuto.destroy
     respond_to do |format|
       format.html { redirect_to tutos_url, notice: 'Tuto was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
