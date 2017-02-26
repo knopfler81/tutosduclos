@@ -4,8 +4,12 @@ class TutosController < ApplicationController
 
 
   def index
-    @tutos = Tuto.all
-    filter_tutos
+    if params[:query].present?
+      filter_tutos
+    else
+      @tutos = Tuto.all
+    end
+
   end
 
 
