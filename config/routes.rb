@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :users, only: [:index, :show, :destroy]
+  end
+
   devise_for :users, skip: :sessions, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do

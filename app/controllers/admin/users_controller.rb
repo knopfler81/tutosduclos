@@ -1,11 +1,8 @@
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-  #binding.pry
-    @user = User.find(current_user)
-    #@user = User.find(user_params[:id])
-    #@user = User.find(user_params[:id]) || current_user
+    @user = User.find(params[:id])
     @tutos= Tuto.all
   end
 
@@ -21,12 +18,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     flash[:success] = "User was successfully deleted"
-    redirect_to users_path
+    redirect_to admin_users_path
   end
 
   private
   def user_params
-    params.require(:user).permit(:avatar, :first_name, :last_name, :email )
-
+    params.require(:user).permit(:avatar, :first_name, :last_name, :email)
   end
 end
