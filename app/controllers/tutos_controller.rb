@@ -2,14 +2,9 @@ class TutosController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :set_tuto, only: [:show, :edit, :update, :destroy, :upvote]
 
-
   def index
-    if params[:query].present?
-      filter_tutos
-    else
-      @tutos = Tuto.all
-    end
-
+    filter_tutos if params[:query].present?
+    @tutos ||= Tuto.all
   end
 
 
@@ -70,6 +65,7 @@ class TutosController < ApplicationController
   private
 
     def filter_tutos
+      return if params[:query].nil? # Don't bother, if the query is nil
       @tutos = Tuto.search(params[:query][:keyword]).includes(:user, :category) if params[:query][:keyword].present?
       @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:query][:user]) if params[:query][:user].present?
       @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:query][:category]) if params[:query][:category].present?
