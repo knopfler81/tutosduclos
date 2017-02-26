@@ -1,6 +1,6 @@
 
 h1.text-gray =t("search_form.title")
-.search_banner
+.form_search
   .row
     .col-xs-12.col-sm-10.col-sm-offset-1.text-center
       = simple_form_for :query, url: tutos_path, method: :get,  wrapper: :inline_form, html: {class: 'form-inline'} do |f|
@@ -11,9 +11,9 @@ h1.text-gray =t("search_form.title")
         br
         br
     .col-xs-12.col-sm-10.col-sm-offset-1.text-center
-      = link_to t("search_form.best"),  best_voted_path, class: "btn btn-default"
-      = link_to t("search_form.all"), {controller: 'tutos', action: 'index'}, class: "btn btn-success"
+      = link_to t("search_form.best"),  best_voted_path, class: "btn btn-success search-btn"
+      = link_to t("search_form.all"), {controller: 'tutos', action: 'index'}, class: "btn btn-success search-btn"
       -if user_signed_in?
-        = link_to t("search_form.create"), new_tuto_path, class:"btn btn-success"
+        = link_to t("search_form.create"), new_tuto_path, class:"btn btn-success search-btn"
 
 
