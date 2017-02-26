@@ -29,7 +29,9 @@ module ApplicationHelper
       "Rails5"          => "select/rails5.png",
       "Heroku"          => "select/heroku.png",
       "AWS-Amazon"      => "select/aws.png",
-      "Console/Shell"   => "select/shell.png"
+      "Console/Shell"   => "select/shell.png",
+      "Git"             => "select/git.png",
+      "jQuery"          => "select/jquery.png"
     }
     images[name]
   end

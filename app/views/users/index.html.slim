@@ -9,7 +9,7 @@
         th Email Address
         th Action on User
   hr
-      
+
     tbody.board
       -@users.each do |user|
         .row
@@ -20,7 +20,7 @@
           .col-xs-3
             = user.email
           .col-xs-1
-            = link_to 'View', user_path(user), class:'btn btn-success'
+            = link_to 'View', "#", class:'btn btn-success'
           .col-xs-1
-            = link_to 'Remove', user_path(user), class:'btn btn-danger', method: :delete, data: {confirm: "Are you sure?"}
+            = link_to 'Remove', "#", class:'btn btn-danger', method: :delete, data: {confirm: "Are you sure?"}
         hr
