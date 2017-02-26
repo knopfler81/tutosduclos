@@ -65,7 +65,7 @@ class TutosController < ApplicationController
   private
 
     def filter_tutos
-      return if params[:query].nil? # Don't bother, if the query is nil
+      return if params[:query].blank?
       @tutos = Tuto.search(params[:query][:keyword]).includes(:user, :category) if params[:query][:keyword].present?
       @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:query][:user]) if params[:query][:user].present?
       @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:query][:category]) if params[:query][:category].present?
