@@ -4,22 +4,10 @@ class TutosController < ApplicationController
 
 
   def index
-    if params[:search].present?
-      @tutos = Tuto.search(params[:search]).includes(:user, :category)
+    if params[:query].present?
+      filter_tutos
     else
-      @tutos = Tuto.all.includes(:user, :category)
-    end
-
-    if params[:select].present?
-      @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:select])
-    else
-      @category = Category.all
-    end
-
-    if params[:filter].present?
-      @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:filter])
-    else
-      @categories = Category.all
+      @tutos = Tuto.all
     end
 
   end
@@ -49,10 +37,8 @@ class TutosController < ApplicationController
       if @tuto.save
         flash[:success] = "Test"
         format.html { redirect_to @tuto, notice: 'Tuto was successfully created.' }
-        format.json { render :show, status: :created, location: @tuto }
       else
         format.html { render :new }
-        format.json { render json: @tuto.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -61,10 +47,8 @@ class TutosController < ApplicationController
     respond_to do |format|
       if @tuto.update(tuto_params)
         format.html { redirect_to @tuto, notice: 'Tuto was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tuto }
       else
         format.html { render :edit }
-        format.json { render json: @tuto.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,7 +58,6 @@ class TutosController < ApplicationController
     @tuto.destroy
     respond_to do |format|
       format.html { redirect_to tutos_url, notice: 'Tuto was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
@@ -86,6 +69,11 @@ class TutosController < ApplicationController
 
   private
 
+    def filter_tutos
+      @tutos = Tuto.search(params[:query][:keyword]).includes(:user, :category) if params[:query][:keyword].present?
+      @tutos = Tuto.joins(:user).where('users.nickname LIKE ?', params[:query][:user]) if params[:query][:user].present?
+      @tutos = Tuto.joins(:category).where('categories.name LIKE ?', params[:query][:category]) if params[:query][:category].present?
+    end
 
     def set_tuto
       @tuto = Tuto.find(params[:id])

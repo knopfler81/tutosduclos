@@ -6,6 +6,8 @@ class Tuto < ActiveRecord::Base
 
   scope :by_date, -> { order(created_at: :desc) }
 
+
+
   def self.search(search)
     if search
      where(["lower(title) LIKE ?","%#{search.downcase}%"]).order('created_at DESC')
