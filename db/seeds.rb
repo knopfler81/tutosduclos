@@ -25,3 +25,9 @@ shell.save
 
 ruby= Category.new(name: "Ruby")
 ruby.save
+
+git= Category.new(name: "Git")
+git.save
+
+jquery= Category.new(name: "jQuery")
+jquery.save
