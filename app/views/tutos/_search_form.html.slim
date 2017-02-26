@@ -9,9 +9,9 @@
         br
         br
     .col-xs-12.col-sm-10.col-sm-offset-1.text-center
-      = link_to t("search_form.best"),  best_voted_path, class: "btn btn-success search-btn"
-      = link_to t("search_form.all"), {controller: 'tutos', action: 'index'}, class: "btn btn-success search-btn"
+      = link_to t("search_form.best"),  best_voted_path, class: "btn btn-warning search-btn"
+      = link_to t("search_form.all"), {controller: 'tutos', action: 'index'}, class: "btn btn-warning search-btn"
       -if user_signed_in?
-        = link_to t("search_form.create"), new_tuto_path, class:"btn btn-success search-btn"
+        = link_to t("search_form.create"), new_tuto_path, class:"btn btn-warning search-btn"
 
 
