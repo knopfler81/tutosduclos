@@ -4,7 +4,6 @@
   = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     = f.error_notification
     .form-inputs
-      / = f.file_field :avatar
       = f.input :first_name
       = f.input :last_name
       = f.input :nickname
@@ -19,11 +18,11 @@
     .form-actions
       = f.button :submit, t('.update', :default => "Update")
 
-  h3 = t('.cancel_my_account', :default => 'Cancel my account')
+      h3 = t('.cancel_my_account', :default => 'Cancel my account')
 
-  / p  = link_to = t('.unhappy', :default => 'Unhappy')
+      p  = link_to = t('.unhappy', :default => 'Unhappy')
 
-  / p  = link_to t('.cancel_my_account', :default => "Cancel my account"),
-  /     registration_path(resource_name), :data => { :confirm => t(.are_you_sure), :default => "Are you sure?") }, :method => :delete
+      p  = link_to t('.cancel_my_account', :default => "Cancel my account"),
+          registration_path(resource_name), :data => { :confirm => t(.are_you_sure), :default => "Are you sure?") }, :method => :delete
 
-  p  = link_to t('devise.shared.links.back', :default => "Back"), :back
+      p  = link_to t('devise.shared.links.back', :default => "Back"), :back
