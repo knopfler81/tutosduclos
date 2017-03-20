@@ -1,5 +1,8 @@
 == README
 
+
+This ap is kinda my bookmark of the things I learn 
+
 In production you'll need to create the categories in the console.
 
 
