@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
 
-    root "home#landing"
+    root "tutos#landing"
 
     get "/best_voted", to: "tutos#best_voted"
 

@@ -8,6 +8,7 @@ module ApplicationHelper
   end
 
   def markdown(text)
+    language ||= :plaintext
     coderayified = CodeRayify.new(:filter_html => true, :hard_wrap => true)
     options = {
       :fenced_code_blocks => true,
@@ -19,8 +20,9 @@ module ApplicationHelper
     }
     markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
     markdown_to_html.render(text).html_safe
-
   end
+
+
 
   def image_by_category(name)
     images = {
