@@ -1,0 +1,38 @@
+.bg-image
+  .container
+    .row
+      .col-xs-12.col-sm-10.col-sm-offset-1
+        h1.landing-title TUTOS & MEMOS
+    .row
+      .col-xs-12.col-sm-10.col-sm-offset-1.text-center
+        = render  "tutos/search_form"
+
+    .row
+      .col-xs-12.col-sm-10.col-sm-offset-1.text-center
+        h2.text-white Last entries
+        #tutos.transitions-enabled
+          -@tutos.each do |tuto|
+            .box
+              .box-body
+              = link_to tuto_path(tuto) do
+                .row.title-link
+                h4 = tuto.title.capitalize
+                .row.image
+                  = image_tag(image_by_category(tuto.category.try(:name)))
+
+                h6 = tuto.created_at.strftime('%m/%d/%Y')
+              .box-footer
+               hr
+                .col-xs-8.devided-footer-left
+                  = image_tag(tuto.user.avatar.url(:thumb), class: "avatar_small")
+                  = tuto.user.nickname
+                .col-xs-4
+                  span.glyphicon.glyphicon-heart.heart
+                  span<>
+                  = tuto.get_upvotes.size
+
+
+
+
+
+

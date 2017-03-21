@@ -7,3 +7,12 @@
       .col-xs-12.col-sm-10.col-sm-offset-1.text-center
         = render  "tutos/search_form"
 
+    .row
+      .col-xs-12.col-sm-10.col-sm-offset-1.text-center
+        h2.text-white Last entries...
+          = @tutos.each do |tuto|
+            tuto.title
+
+
+
+
