@@ -1,25 +1,23 @@
 .container
   / h1.text-gray =t("search_form.title")
   =render  "search_form"
-  #tutos.transitions-enabled
-    -@tutos.by_date.each do |tuto|
-      .box
-        .box-body
-        = link_to tuto_path(tuto) do
-          .row.title-link
-            h4 = tuto.title.capitalize
-          .row.image
-            = image_tag(image_by_category(tuto.category.try(:name)))
 
-          h6 = tuto.created_at.strftime('%m/%d/%Y')
-        .box-footer
-          hr
-          .col-xs-8.devided-footer-left
-            = image_tag(tuto.user.facebook_picture_url || "http://placehold.it/50x50", class: "avatar_small")
+  -@tutos.by_date.each do |tuto|
+    = link_to tuto_path(tuto) do
+      span
+      .col-xs-12.col-md-10.col-md-offset-1.product
+        .product-upvote
+          = image_tag(image_by_category(tuto.category.try(:name)),class:"logo-category")
+          br
+          span.glyphicon.glyphicon-heart.heart
+          span<>
+          = tuto.get_upvotes.size
+
+        .product-body
+          h4 = tuto.title.capitalize
+          p  = truncate(tuto.description, length: 200)
+        .product-user
+          = image_tag((tuto.user.facebook_picture_url || "http://placehold.it/50x50"), class:"avatar-product")
+          br
+          .user-name
             = tuto.user.nickname
-          .col-xs-4
-            span.glyphicon.glyphicon-heart.heart
-            span<>
-            = tuto.get_upvotes.size
-
-
