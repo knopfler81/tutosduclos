@@ -3,7 +3,7 @@ class TutosController < ApplicationController
   before_action :set_tuto, only: [:show, :edit, :update, :destroy, :upvote]
 
   def landing
-    @tutos = Tuto.last(3)
+    @tutos = Tuto.last(2)
   end
 
   def index
