@@ -8,12 +8,12 @@
 .navbar {
   margin-bottom: 0;
   padding-bottom: 5px;
-  background-color: black;
+  background-color: #141414;
   position: fixed;
 }
 
 .navbar-custom {
-  background: black;
+  background: #141414;
   color: #ffffff;
   border-radius:0;
 }
@@ -22,13 +22,13 @@
 }
 
 .navbar-custom .navbar-nav > li > a:hover {
-  background-color: black;
+  background-color: #141414;
   color: #fff;
 }
 
 
 .navbar-custom .navbar-nav > .active > a {
   color: black;
-  background-color: black;
+  background-color: #141414;
 }
 
