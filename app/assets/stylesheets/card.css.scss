@@ -51,13 +51,16 @@
 
 /* Hover effects */
 .product:hover {
-  background: #f7f7fa;
+  background: #ECECEC;
+  border: 1px solid #fff;
   cursor: pointer;
 }
 
 .product-user {
   .user-name{
-    color: #ccc;
+    color: gray;
+    font-weight: bold;
+    font-size: 12px;
     padding: 10px;
   }
 

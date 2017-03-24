@@ -2,10 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-  #binding.pry
     @user = User.find(current_user)
-    #@user = User.find(user_params[:id])
-    #@user = User.find(user_params[:id]) || current_user
     @tutos= Tuto.all
   end
 
