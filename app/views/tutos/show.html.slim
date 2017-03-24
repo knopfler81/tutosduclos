@@ -1,11 +1,10 @@
 .container
-
-  .row.white-background
-    .col-xs-12
+  .row
+    .col-xs-12.white-background
       p  = t("show.post")+ time_ago_in_words(@tuto.created_at) + t("show.ago") +  t("show.by") + " #{@tuto.user.nickname}"
       h3 = @tuto.title.capitalize
       br
-      = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-info" do
+      = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-warning" do
         span.glyphicon.glyphicon-heart
         span<>
           = @tuto.get_upvotes.size
@@ -14,9 +13,7 @@
       hr
       = markdown(@tuto.content)
 
-
-  .tuto-buttons
-    .row
+  .row
     -if user_signed_in?
       -if @tuto.user_id == current_user.id || current_user.admin? == true
         .row

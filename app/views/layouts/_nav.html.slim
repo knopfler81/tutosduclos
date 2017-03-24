@@ -1,4 +1,4 @@
-nav.navbar.navbar-inverse.navbar-fixed-top
+nav.navbar.navbar-custom.navbar-fixed-top
   .container-fluid
     .navbar-header
       button.navbar-toggle.collapsed[type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"]
@@ -11,8 +11,6 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         = link_to "https://duclostutos.herokuapp.com" do
           = image_tag("logo1.png", class: "logo")
 
-
-
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav.navbar-right
         li.dropdown
@@ -24,6 +22,19 @@ nav.navbar.navbar-inverse.navbar-fixed-top
               =link_to  t("nav.see-tuto"), tutos_path
             li
               = link_to t("nav.suggest-tuto"), new_tuto_path
+
+
+        li.dropdown
+          a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
+            = t("nav.lang")
+            span.caret
+          ul.dropdown-menu
+            li
+              =link_to_unless_current t("nav.en"), locale: "en"
+            li
+              =link_to_unless_current t("nav.fr"), locale: "fr"
+            li
+              =link_to_unless_current t("nav.es"), locale: "es"
 
         li.dropdown
           a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
@@ -39,18 +50,3 @@ nav.navbar.navbar-inverse.navbar-fixed-top
 
               li
                 =link_to t("nav.login"), login_path
-        li.dropdown
-          a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
-            = t("nav.lang")
-            span.caret
-          ul.dropdown-menu
-            li
-              =link_to_unless_current t("nav.en"), locale: "en"
-            li
-              =link_to_unless_current t("nav.fr"), locale: "fr"
-            li
-              =link_to_unless_current t("nav.es"), locale: "es"
-
-
-
-
