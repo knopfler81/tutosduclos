@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170226164655) do
+ActiveRecord::Schema.define(version: 20170324132031) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20170226164655) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "tuto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["tuto_id"], name: "index_reviews_on_tuto_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
   create_table "tutos", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -28,6 +39,7 @@ ActiveRecord::Schema.define(version: 20170226164655) do
     t.text     "content"
     t.integer  "user_id"
     t.integer  "category_id"
+    t.text     "description"
   end
 
   add_index "tutos", ["user_id"], name: "index_tutos_on_user_id"
@@ -58,6 +70,8 @@ ActiveRecord::Schema.define(version: 20170226164655) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "phone"
+    t.text     "bio"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

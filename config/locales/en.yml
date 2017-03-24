@@ -25,12 +25,14 @@ en:
     select_cat: "Select a catgory"
     best: "See best voted"
     create: "Create a tuto"
+    signin: "Sign in to create"
     all: "All tutos"
   tutos_form:
     save: "Save"
     category: "Chose a category"
     title: "Title"
     content: "Content"
+    description: "Description"
   index:
     create_by: "Created by: "
     create_at: "Created at: "

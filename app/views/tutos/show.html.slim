@@ -9,8 +9,9 @@
           span.glyphicon.glyphicon-heart
           span<>
             = @tuto.get_upvotes.size
-        br
-        br
+        hr
+        = @tuto.description
+        hr
         = markdown(@tuto.content)
 
 

@@ -4,24 +4,30 @@
       .col-xs-12.col-sm-10.col-sm-offset-1
         h1.landing-title TUTOS & MEMOS
     .row
-      .col-xs-12.col-sm-10.col-sm-offset-1.text-center
+      .col-xs-12.col-sm-10.col-sm-offset-1
         = render  "tutos/landing_search_form"
 
     .row
-      .col-xs-12.col-md-8.col-md-offset-2.text-center
-        .tutos-landing
-          h2.text-white Last entries...
-          #tutos.transitions-enabled
-            -@tutos.each do |tuto|
-              .box.landing-box
-                .box-body
-                  = link_to tuto_path(tuto) do
-                    .row.title-link
-                    h4 = tuto.title.capitalize
+      .col-xs-12.col-md-8.col-md-offset-2.tutos-landing
 
-                  .row.image
-                    = image_tag(image_by_category(tuto.category.try(:name)))
+        h2 Last entries...
+        br
+        -@tutos.each do |tuto|
+          = link_to tuto_path(tuto) do
+            span
+            .col-xs-12.col-md-10.col-md-offset-1.product
+              .product-upvote
+                = image_tag(image_by_category(tuto.category.try(:name)),class:"logo-category")
+                br
+                span.glyphicon.glyphicon-heart.heart
+                span<>
+                = tuto.get_upvotes.size
 
-
-
-
+              .product-body
+                h4 = tuto.title.capitalize
+                p  = truncate(tuto.description, length: 140)
+              .product-user
+                = image_tag((tuto.user.facebook_picture_url || "http://placehold.it/50x50"), class:"avatar-product")
+                br
+                .user-name
+                    = tuto.user.nickname
