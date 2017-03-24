@@ -15,7 +15,7 @@
         .box-footer
           hr
           .col-xs-8.devided-footer-left
-            = image_tag(current_user.facebook_picture_url || current_user.avatar.url(:thumb), class: "avatar_small")
+            = image_tag(tuto.user.facebook_picture_url || tuto.user.avatar_file_name.url(:thumb), class: "avatar_small")
             = tuto.user.nickname
           .col-xs-4
             span.glyphicon.glyphicon-heart.heart
