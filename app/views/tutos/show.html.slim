@@ -4,11 +4,11 @@
       p  = t("show.post")+ time_ago_in_words(@tuto.created_at) + t("show.ago") +  t("show.by") + " #{@tuto.user.nickname}"
       h3 = @tuto.title.capitalize
       br
-      = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-warning" do
+      = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-custom" do
         span.glyphicon.glyphicon-heart
         span<>
           = @tuto.get_upvotes.size
-      hr
+      hrcustom
       = @tuto.description
       hr
       = markdown(@tuto.content)
@@ -18,9 +18,9 @@
       -if @tuto.user_id == current_user.id || current_user.admin? == true
         .row
           .col-xs-12.col-sm-2
-            = link_to t("show.button_back"), tutos_path, class: "btn btn-success"
+            = link_to t("show.button_back"), tutos_path, class: "btn btn-custom"
           .col-xs-12.col-sm-2
-            = link_to t("show.button_edit"), edit_tuto_path, class: "btn btn-warning"
+            = link_to t("show.button_edit"), edit_tuto_path, class: "btn btn-custom"
           .col-xs-12.col-sm-2
             = link_to t("show.button_delete"), tuto_path(@tuto), data: { confirm: t("show.confirmation_delete")}, method: :delete, class: "btn btn-danger"
 

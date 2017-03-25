@@ -1,7 +1,7 @@
 .container
-  .row
-    h4 =t("new.line_1") 
+  .row.text-white
+    h4 =t("new.line_1")
     h4 =t("new.line_2_html", :href => link_to(t("new.href"), "https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet"))
     br
-    
+
     =render "tutos_form"

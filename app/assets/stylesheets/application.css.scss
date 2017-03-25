@@ -17,7 +17,7 @@
 
 body {
   padding-top: 80px;
-  background-color:  #ECECEC !important;
+  background-color:  #2B2B2B !important;
 }
 
  @import "bootstrap-sprockets";
@@ -36,6 +36,15 @@ a:hover {
   text-decoration: none
 }
 
+.text-white{
+  color: #ccc;
+  h4 {
+    font-weight: initial;
+  }
+  label{
+    font-weight: initial;
+  }
+}
 
 .table-actions{
   margin-left: 25%;
@@ -49,3 +58,11 @@ a:hover {
   color:  #000000 !important;
 }
 
+.btn {
+  border-radius: 50px;
+}
+
+
+.form-control {
+  background-color: #eee!important;
+}
