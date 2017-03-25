@@ -214,7 +214,7 @@ div.field, div.actions {
 .btn-search {
   margin-left: 8px;
   background-color: #ffffff;
-  color: #000;
+  color: #000!important;
 }
 
 /* line 78, /Users/nellyduclos/ROR/duclos_tutos/app/assets/stylesheets/tutos.css.scss */
@@ -222,6 +222,7 @@ div.field, div.actions {
   border-radius: 4px;
   height: 25px;
   width: 70%;
+  color: #000;
 }
 
 /* line 84, /Users/nellyduclos/ROR/duclos_tutos/app/assets/stylesheets/tutos.css.scss */
