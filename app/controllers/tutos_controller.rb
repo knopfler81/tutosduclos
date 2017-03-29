@@ -15,6 +15,7 @@ class TutosController < ApplicationController
   def show
     @tuto = Tuto.find(params[:id])
     @user = User.all
+    @review = Review.new
   end
 
   def best_voted

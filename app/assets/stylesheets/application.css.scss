@@ -25,7 +25,10 @@ body {
  @import "landing";
  @import "tutos";
  @import "search_form";
-
+ @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+ @import "reviews";
 
 ol {
     list-style-type: decimal-leading-zero;
