@@ -10,7 +10,6 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook]
 
 
-  validates :nickname,   presence: true, length: { minimum: 3, maximum: 20 }
   has_many :tutos
   attr_accessor :avatar_file_name
 
@@ -34,6 +33,18 @@ class User < ActiveRecord::Base
 
     return user
   end
+
+   def completed_profile?
+     if nickname.present? && first_name.present? && last_name.present?
+       true
+     else
+       false
+     end
+   end
+
+   def signed_without_oauth?
+     provider != "facebook"
+   end
 
   # def full_name
   #   "#{first_name} #{last_name} "

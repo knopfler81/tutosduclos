@@ -4,9 +4,11 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :destroy]
   end
 
-  devise_for :users, skip: :sessions, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+ devise_for :users,
+   controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'registrations' }
 
- scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+
+   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
 
     root "tutos#landing"
 
@@ -26,14 +28,11 @@ Rails.application.routes.draw do
       end
     end
 
-    as :user do
-      get     "/register",  to: "devise/registrations#new", as: :register
-      get     "/login",     to: "devise/sessions#new", as: :login
-      get     "/logout",    to: "devise/sessions#destroy", as: :logout
-      get     "/account",   to: "users#show", as: :account
-      get     "/login" ,    to: "devise/sessions#new", as: :new_user_session
-      post    "/login" ,    to: "devise/sessions#create", as: :user_session
-    end
+      as :user do
+        get     "/login",     to: "devise/sessions#new", as: :login
+        get     "/logout",    to: "devise/sessions#destroy", as: :logout
+        get     "/account",   to: "users#show", as: :account
+      end
 
 
 
