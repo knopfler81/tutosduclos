@@ -1,14 +1,15 @@
 -if @tuto.reviews.present?
 
-  -@tuto.reviews.each do |review|
-    .row
-      .col-xs-12.white-background.reviews
 
-        p.nickname = review.user.nickname + " has commented " + time_ago_in_words(review.created_at) + " ago!"
+  .row
+    .col-xs-12.white-background
+      -@tuto.reviews.by_date.each do |review|
+        .reviews
+          small= review.user.nickname.capitalize + " has commented " + time_ago_in_words(review.created_at) + " ago!"
+          .small-hr
+          -review.rating.times do
+            span
+            i.fa.fa-star
 
-        -review.rating.times do
-          span
-          i.fa.fa-star[aria-hidden="true"]
-
-        p = simple_format(review.content)
+          p = simple_format(review.content)
 
