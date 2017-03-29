@@ -44,8 +44,10 @@ nav.navbar.navbar-custom.navbar-fixed-top
               span.caret
               ul.dropdown-menu
                 li
-                  =link_to t("nav.logout"), logout_path
+                  = link_to t("nav.logout"), logout_path
                   = link_to t("nav.account"), account_path
+                  = link_to t("Edit"), edit_user_registration_path
+
             -else
 
               li

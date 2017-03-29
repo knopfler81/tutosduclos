@@ -22,7 +22,11 @@ class TutosController < ApplicationController
   end
 
   def new
-    @tuto = Tuto.new
+    if current_user.completed_profile?
+      @tuto = Tuto.new
+    else
+      redirect_to edit_user_registration_path, alert: 'Please complete your profile to create a tuto'
+    end
   end
 
   def edit
@@ -31,10 +35,8 @@ class TutosController < ApplicationController
   def create
     @tuto = Tuto.new(tuto_params)
     @tuto.user_id = current_user.id
-
     respond_to do |format|
       if @tuto.save
-        flash[:success] = "Test"
         format.html { redirect_to @tuto, notice: 'Tuto was successfully created.' }
       else
         format.html { render :new }
