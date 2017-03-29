@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap-sass', '~> 3.3.6'
+
 gem 'coderay'
 gem 'markdown-rails'
 gem 'simple_form'
@@ -23,6 +23,8 @@ gem 'rails_12factor', group: :production
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'paperclip', '~> 4.1'
 gem 'font-awesome-sass'
+gem 'bootstrap-sass'
+
 
 gem 'figaro'
 

@@ -1,0 +1,24 @@
+.nickname{
+  font-weight: bold;
+}
+
+.reviews {
+  .fa-star{
+    color: #DD068B;
+  }
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+  .small-hr {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-top: 1px solid #fff;
+  }
+
+  small {
+    font-style: italic;
+    font-size: 10px;
+  }
+}

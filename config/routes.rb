@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'reviews/create'
+
   namespace :admin do
     resources :users, only: [:index, :show, :destroy]
   end
@@ -14,10 +16,8 @@ Rails.application.routes.draw do
 
     get "/best_voted", to: "tutos#best_voted"
 
-    resources :tutos
-
-    namespace :users do
-      resources :tutos
+    resources :tutos do
+      resources :reviews, only: [:create]
     end
 
     resources :tutos, only: [:show]
@@ -28,17 +28,19 @@ Rails.application.routes.draw do
       end
     end
 
-      as :user do
-        get     "/login",     to: "devise/sessions#new", as: :login
-        get     "/logout",    to: "devise/sessions#destroy", as: :logout
-        get     "/account",   to: "users#show", as: :account
-      end
+    namespace :users do
+      resources :tutos
+    end
 
-
-
+    as :user do
+      get     "/login",     to: "devise/sessions#new", as: :login
+      get     "/logout",    to: "devise/sessions#destroy", as: :logout
+      get     "/account",   to: "users#show", as: :account
+    end
   end
-     get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
-     get '', to: redirect("/#{I18n.default_locale}")
+
+  get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  get '', to: redirect("/#{I18n.default_locale}")
 end
 
 
