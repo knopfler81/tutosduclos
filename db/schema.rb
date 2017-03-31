@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329185423) do
+ActiveRecord::Schema.define(version: 20170331161805) do
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.integer  "attachinariable_id"
+    t.string   "attachinariable_type"
+    t.string   "scope"
+    t.string   "public_id"
+    t.string   "version"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "format"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attachinary_files", ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent"
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -57,10 +73,6 @@ ActiveRecord::Schema.define(version: 20170329185423) do
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
     t.string   "nickname"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
     t.string   "provider"
     t.string   "uid"
     t.string   "facebook_picture_url"
@@ -68,6 +80,7 @@ ActiveRecord::Schema.define(version: 20170329185423) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

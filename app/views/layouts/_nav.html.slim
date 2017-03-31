@@ -39,8 +39,11 @@ nav.navbar.navbar-custom.navbar-fixed-top
         li.dropdown
           a.dropdown-toggle[href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"]
             -if user_signed_in?
+              -if current_user.avatar.present? || current_user.facebook_picture_url.present?
+                = cl_image_tag(current_user.facebook_picture_url || current_user.avatar.path, :transformation=>[{:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},{:width=>50, :height=>50, :crop=>"scale"}], class: "avatar_small")
+              -else
+                = image_tag("http://placehold.it/30x30", class:"avatar-small")
 
-              = image_tag(current_user.facebook_picture_url || current_user.avatar.url(:thumb), class: "avatar_small")
               span.caret
               ul.dropdown-menu
                 li

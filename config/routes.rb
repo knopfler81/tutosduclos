@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'reviews/create'
+  mount Attachinary::Engine => "/attachinary"
+
 
   namespace :admin do
     resources :users, only: [:index, :show, :destroy]
