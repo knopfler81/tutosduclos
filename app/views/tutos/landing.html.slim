@@ -16,12 +16,19 @@
           = link_to tuto_path(tuto) do
             span
             .col-xs-12.col-md-10.col-md-offset-1.product
-              .product-upvote
+              .product-upvote.text-center
                 = image_tag(image_by_category(tuto.category.try(:name)),class:"logo-category")
                 br
-                span.glyphicon.glyphicon-heart.heart
-                span<>
-                = tuto.get_upvotes.size
+                br
+                / span.glyphicon.glyphicon-heart.heart
+                / span<>
+                / = tuto.get_upvotes.size
+                -if tuto.reviews.present?
+                  -tuto.rating_average.times do
+                    span.fa.fa-star
+                -else
+                  -5.times do
+                    span.fa.fa-star.star_grey
 
               .product-body
                 h4 = tuto.title.capitalize

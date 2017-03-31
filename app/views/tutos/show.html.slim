@@ -4,10 +4,14 @@
       p  = t("show.post")+ time_ago_in_words(@tuto.created_at) + t("show.ago") +  t("show.by") + " #{@tuto.user.nickname}"
       h3 = @tuto.title.capitalize
       br
-      = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-custom" do
-        span.glyphicon.glyphicon-heart
-        span<>
-          = @tuto.get_upvotes.size
+      .add-review
+        button.btn.btn-primary[type="button" data-toggle="modal" data-target="#myModal"]
+          | Comment & rate
+      / = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-custom" do
+      /   span.glyphicon.glyphicon-heart
+      /   span<>
+      /     = @tuto.get_upvotes.size
+      /= @tuto.rating_average
       hr
       = @tuto.description
       hr
@@ -24,10 +28,10 @@
               = link_to t("show.button_delete"), tuto_path(@tuto), data: { confirm: t("show.confirmation_delete")}, method: :delete, class: "btn btn-danger"
             .col-xs-12.col-sm-2
               = link_to t("show.button_edit"), edit_tuto_path(@tuto), class: "btn btn-custom"
-          .col-xs-12.col-sm-2
-            .add-review
-              button.btn.btn-primary[type="button" data-toggle="modal" data-target="#myModal"]
-                |  Add a comment
+          / .col-xs-12.col-sm-2
+          /   .add-review
+          /     button.btn.btn-primary[type="button" data-toggle="modal" data-target="#myModal"]
+          /       |  Add a comment
 
         = render "tutos/review_modal", tuto: @tuto, review: @review
         = render "tutos/reviews"

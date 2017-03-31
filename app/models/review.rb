@@ -4,4 +4,7 @@ class Review < ActiveRecord::Base
   validates :content, presence: true
   validates :rating, presence: true
   scope :by_date, -> { order(created_at: :desc) }
+
+
+
 end
