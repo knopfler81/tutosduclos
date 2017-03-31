@@ -24,6 +24,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'paperclip', '~> 4.1'
 gem 'font-awesome-sass'
 gem 'bootstrap-sass'
+gem 'kaminari'
 
 
 gem 'figaro'
