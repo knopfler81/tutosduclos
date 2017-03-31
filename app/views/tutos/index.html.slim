@@ -26,7 +26,7 @@
         .product-user
           -if tuto.user.avatar.present?
             = cl_image_tag(tuto.user.avatar.path, :transformation=>[{:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},{:width=>50, :height=>50, :crop=>"scale"}])
-          -elsif tuto.ser.facebook_picture_url.present?
+          -elsif tuto.user.facebook_picture_url.present?
             = image_tag(tuto.user.facebook_picture_url)
           -else
             = image_tag("http://placehold.it/30x30")
