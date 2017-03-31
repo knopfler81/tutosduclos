@@ -8,7 +8,7 @@ class TutosController < ApplicationController
 
   def index
     filter_tutos if params[:query].present?
-    @tutos ||= Tuto.all
+    @tutos ||= Tuto.all.page params[:page]
   end
 
 

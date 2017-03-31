@@ -10,7 +10,7 @@ class Tuto < ActiveRecord::Base
 
   scope :by_date, -> { order(created_at: :desc) }
 
-
+  paginates_per 5
 
   def self.search(search)
     if search
