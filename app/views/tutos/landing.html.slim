@@ -20,9 +20,6 @@
                 = image_tag(image_by_category(tuto.category.try(:name)),class:"logo-category")
                 br
                 br
-                / span.glyphicon.glyphicon-heart.heart
-                / span<>
-                / = tuto.get_upvotes.size
                 -if tuto.reviews.present?
                   -tuto.rating_average.times do
                     span.fa.fa-star
@@ -34,10 +31,12 @@
                 h4 = tuto.title.capitalize
                 p  = truncate(tuto.description, length: 140)
               .product-user
-                -if tuto.user.facebook_picture_url.present? || tuto.user.avatar.present?
-                  = cl_image_tag((tuto.user.facebook_picture_url || tuto.user.avatar.path), class:"avatar-product")
+                -if tuto.user.avatar.present?
+                  = cl_image_tag(tuto.user.avatar.path, :transformation=>[{:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},{:width=>50, :height=>50, :crop=>"scale"}])
+                -elsif tuto.ser.facebook_picture_url.present?
+                  = image_tag(tuto.user.facebook_picture_url)
                 -else
-                 = image_tag("http://placehold.it/50x50", class:"avatar-product")
+                  = image_tag("http://placehold.it/30x30")
                 br
                 .user-name
                     = tuto.user.nickname
