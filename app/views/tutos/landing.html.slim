@@ -20,9 +20,6 @@
                 = image_tag(image_by_category(tuto.category.try(:name)),class:"logo-category")
                 br
                 br
-                / span.glyphicon.glyphicon-heart.heart
-                / span<>
-                / = tuto.get_upvotes.size
                 -if tuto.reviews.present?
                   -tuto.rating_average.times do
                     span.fa.fa-star
