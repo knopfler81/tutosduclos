@@ -24,13 +24,14 @@
           h4 = tuto.title.capitalize
           p  = truncate(tuto.description, length: 200)
         .product-user
-         -if tuto.user.facebook_picture_url.present? || tuto.user.avatar.present?
-           = cl_image_tag(tuto.user.facebook_picture_url || tuto.user.avatar.path, :transformation=>[{:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},{:width=>50, :height=>50, :crop=>"scale"}], class:"avatar-product")
-         -else
-          = image_tag("http://placehold.it/50x50", class:"avatar-product")
+          -if tuto.user.facebook_picture_url.present? || tuto.user.avatar.present?
+            = cl_image_tag((tuto.user.facebook_picture_url || tuto.user.avatar.path), class:"avatar-product")
+          -else
+           = image_tag("http://placehold.it/50x50", class:"avatar-product")
           br
           .user-name
-            = tuto.user.nickname
+              = tuto.user.nickname
+
 .row
   .col-xs-12.text-center
     .pagination
