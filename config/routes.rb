@@ -22,11 +22,11 @@ Rails.application.routes.draw do
 
     resources :tutos, only: [:show]
 
-    resources :tutos do
-      member do
-        put "like", to: "tutos#upvote"
-      end
-    end
+    # resources :tutos do
+    #   member do
+    #     put "like", to: "tutos#upvote"
+    #   end
+    # end
 
     namespace :users do
       resources :tutos

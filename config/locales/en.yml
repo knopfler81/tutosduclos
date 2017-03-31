@@ -31,8 +31,8 @@ en:
     save: "Save"
     category: "Choose a category"
     title: "Title"
-    content: "Content"
-    description: "Description"
+    content: "Content, use markdown please"
+    description: "Description, no markdown here"
   index:
     create_by: "Created by: "
     create_at: "Created at: "
