@@ -2,14 +2,25 @@
 
 
   .row
-    .col-xs-12.white-background
+    .col-xs-10.col-xs-offset-1.white-background
       -@tuto.reviews.by_date.each do |review|
         .reviews
-          small= review.user.nickname.capitalize + " has commented " + time_ago_in_words(review.created_at) + " ago!"
+          -if review.user_id == current_user.id
+            small= "You have commented "  + time_ago_in_words(review.created_at) + " ago!"
+          -else
+            small= review.user.nickname.capitalize + " has commented " + time_ago_in_words(review.created_at) + " ago!"
+          -if review.user_id == current_user.id
+            =link_to tuto_review_path(@tuto, review), data: { confirm: "Are you sure?"},
+              method: :delete,
+              class:"trash-review" do
+              span
+              i.fa.fa-trash
           .small-hr
           -review.rating.times do
             span
             i.fa.fa-star
 
           p = simple_format(review.content)
+
+
 

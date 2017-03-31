@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get "/best_voted", to: "tutos#best_voted"
 
     resources :tutos do
-      resources :reviews, only: [:create]
+      resources :reviews, only: [:create, :destroy, :update , :edit]
     end
 
     resources :tutos, only: [:show]
