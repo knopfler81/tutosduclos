@@ -1,17 +1,11 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_attached_file :avatar, :styles => { medium:  "300x300>", thumb: "100x100#" }, :default_url => "missing.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  has_many :tutos
+
+  has_attachment :avatar
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
   devise :omniauthable, omniauth_providers: [:facebook]
-
-
-  has_many :tutos
-  attr_accessor :avatar_file_name
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -35,7 +29,7 @@ class User < ActiveRecord::Base
   end
 
    def completed_profile?
-     if nickname.present? && first_name.present? && last_name.present?
+     if nickname.present? && first_name.present? && last_name.present? && avatar.present? || facebook_picture_url.present?
        true
      else
        false
@@ -45,17 +39,5 @@ class User < ActiveRecord::Base
    def signed_without_oauth?
      provider != "facebook"
    end
-
-  # def full_name
-  #   "#{first_name} #{last_name} "
-  # end
-
-  # def self.select(select)
-  #   if select
-  #    where(["first_name LIKE ?","%#{select}%"])
-  #   else
-  #     all
-  #   end
-  #end
 
 end
