@@ -10,4 +10,4 @@
       = simple_form_for [tuto, review] do |f|
         = f.input :rating, collection: [0, 1, 2, 3, 4, 5], prompt: "Choose rating"
         = f.input :content, input_html: { type: "text"}, required: true
-        = f.submit
+        = f.button :submit, "Send!", class: "btn btn-custom"
