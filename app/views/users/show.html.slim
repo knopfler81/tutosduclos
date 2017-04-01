@@ -2,7 +2,7 @@
   .row
     .col-xs-3
       -if @user.completed_profile?
-        = image_tag(current_user.facebook_picture_url || cl_image_tag @user.avatar.path, width: 200, height: 300, crop: :fill, class: "avatar_big")
+        = image_tag(current_user.facebook_picture_url, class: "avatar_big") || cl_image_tag(@user.avatar.path, width: 300, height: 300, crop: :fill, class: "avatar_big")
       .col-xs-9
         h1
           = @user.first_name
