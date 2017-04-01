@@ -9,7 +9,7 @@
           button.btn.btn-primary.btn-xs[type="button" data-toggle="modal" data-target="#myModal"]
             | Comment & rate
       -else
-        =link_to "Comment & rate", new_user_registration_path, data: {confirm: "You need to be logged in to leave a comment"},class: "btn btn-xs btn-primary"
+        =link_to "Comment & rate", login_path, data: {confirm: "You need to be logged in to leave a comment"},class: "btn btn-xs btn-primary"
       hr
       = @tuto.description
       hr
