@@ -4,9 +4,10 @@
       p  = t("show.post")+ time_ago_in_words(@tuto.created_at) + t("show.ago") +  t("show.by") + " #{@tuto.user.nickname}"
       h3 = @tuto.title.capitalize
       br
-      .add-review
-        button.btn.btn-primary[type="button" data-toggle="modal" data-target="#myModal"]
-          | Comment & rate
+      -if user_signed_in? && current_user.completed_profile?
+        .add-review
+          button.btn.btn-primary[type="button" data-toggle="modal" data-target="#myModal"]
+            | Comment & rate
       / = link_to like_tuto_path(@tuto), method: :put, class:"btn btn-custom" do
       /   span.glyphicon.glyphicon-heart
       /   span<>
