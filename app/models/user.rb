@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  after_create :send_welcome_email
   has_many :tutos
 
   has_attachment :avatar
@@ -6,6 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
+
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -28,16 +30,25 @@ class User < ActiveRecord::Base
     return user
   end
 
-   def completed_profile?
-     if nickname.present? && first_name.present? && last_name.present? && avatar.present? || facebook_picture_url.present?
-       true
-     else
-       false
-     end
-   end
+  def completed_profile?
+    if nickname.present? && first_name.present? && last_name.present? && avatar.present? || facebook_picture_url.present?
+      true
+    else
+      false
+    end
+  end
 
-   def signed_without_oauth?
-     provider != "facebook"
-   end
+  def signed_without_oauth?
+    provider != "facebook"
+  end
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
+
+
+  def send_devise_notification(notification, *args)
+    I18n.with_locale(self.locale) { super(notification, *args) }
+  end
 
 end

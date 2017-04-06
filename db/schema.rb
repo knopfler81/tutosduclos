@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331161805) do
+ActiveRecord::Schema.define(version: 20170406145520) do
 
   create_table "attachinary_files", force: :cascade do |t|
     t.integer  "attachinariable_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170331161805) do
     t.string   "token"
     t.datetime "token_expiry"
     t.string   "avatar"
+    t.string   "locale",                 default: "en",  null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
