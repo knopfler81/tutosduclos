@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: ENV['GMAIL_ADDRESS']
+  default from: "noreply@tutosmemos.com"
   layout 'mailer'
 end
