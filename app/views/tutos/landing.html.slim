@@ -1,14 +1,14 @@
 .bg-image
   .container
     .row
-      .col-xs-12.col-sm-10.col-sm-offset-1
+      .hidden-xs.col-sm-10.col-sm-offset-1
         h1.landing-title TUTO & MEMO
     .row
-      .col-xs-12.col-sm-10.col-sm-offset-1
+      .hidden-xs.col-sm-10.col-sm-offset-1
         = render  "tutos/landing_search_form"
 
     .row
-      .col-xs-12.col-md-8.col-md-offset-2.tutos-landing
+      .hidden-xs.col-md-8.col-md-offset-2.tutos-landing
 
         h2 Last entries...
         br
@@ -28,8 +28,8 @@
                     span.fa.fa-star.star_grey
 
               .product-body
-                h4 = tuto.title.capitalize
-                p  = truncate(tuto.description, length: 140)
+                h4 = truncate(tuto.title.capitalize, length: 20)
+                p  = truncate(tuto.description, length: 50)
               .product-user
                 -if tuto.user.avatar.present?
                   = cl_image_tag(tuto.user.avatar.path, :transformation=>[{:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},{:width=>50, :height=>50, :crop=>"scale"}])
@@ -40,3 +40,9 @@
                 br
                 .user-name
                     = tuto.user.nickname
+    .row
+      .col-xs-12.hidden-sm.title-small-devise
+        h1.landing-title TUTO & MEMO
+      .col-xs-12.hidden-sm
+        = render  "tutos/landing_search_form"
+
