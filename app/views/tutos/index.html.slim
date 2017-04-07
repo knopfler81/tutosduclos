@@ -21,8 +21,8 @@
               span.fa.fa-star.star_grey
 
         .product-body
-          h4 = tuto.title.capitalize
-          p  = truncate(tuto.description, length: 200)
+          h4 = truncate(tuto.title.capitalize, length: 15)
+          p  = truncate(tuto.description, length: 80)
         .product-user
           -if tuto.user.avatar.present?
             = cl_image_tag(tuto.user.avatar.path, :transformation=>[{:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},{:width=>50, :height=>50, :crop=>"scale"}])
