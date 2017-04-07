@@ -1,0 +1,39 @@
+
+
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type="text/css" media="screen">
+
+      .mail   {  margin: 50px; }
+
+      h3      {  color: #dd068b; }
+
+      a:hover {  text-decoration: none; }
+
+      .btn    { background-color: #dd068b;
+                color: #fff;
+                border-radius: 50px;
+                padding: 10px;
+                margin-bottom:  30px;
+                margin-left:  100px;
+            }
+
+    </style>
+</head>
+<body>
+  <div class="mail">
+    <h3>Hey Welcome On Tutos Memos,</h3>
+
+      <p>Please complete your profile to create or comment a tuto!</p>
+      <%= link_to "Complete profile", edit_user_registration_url(@user), class:"btn" %>
+
+  </div>
+
+</body>
+</html>
+
+
+
+
