@@ -1,5 +1,5 @@
 .container
-  / h1.text-gray =t("search_form.title")
+
   =render  "search_form"
 
   -@tutos.by_date.each do |tuto|
@@ -10,9 +10,6 @@
           = image_tag(image_by_category(tuto.category.try(:name)),class:"logo-category")
           br
           br
-          / span.glyphicon.glyphicon-heart.heart
-          / span<>
-          / = tuto.get_upvotes.size
           -if tuto.reviews.present?
             -tuto.rating_average.times do
               span.fa.fa-star

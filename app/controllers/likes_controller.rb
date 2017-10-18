@@ -15,8 +15,6 @@ class LikesController < ApplicationController
      end
    end
 
-
-
   def destroy
     @tuto = Tuto.find(params[:tuto_id])
     @like = @tuto.like.find(params[:id])

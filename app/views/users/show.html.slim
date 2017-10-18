@@ -3,35 +3,27 @@
     .col-xs-3
       -if @user.completed_profile?
         = image_tag(current_user.facebook_picture_url, class: "avatar_big") || cl_image_tag(@user.avatar.path, width: 300, height: 300, crop: :fill, class: "avatar_big")
-      .col-xs-9
-        h1
-          = @user.first_name
-          |'s
-          span<>
-          | Profile
-      .col-offset-xs-3.col-xs-9
-        -if current_user.admin?
-         h3 Admin
-         = link_to "Moderate Users",admin_users_path, class:"btn btn-danger"
-         hr
+      h3
+        = @user.first_name
 
-        h5
-         = @user.first_name
-        h5
-         = @user.last_name
-        h5
-         = @user.email
+      -if current_user.admin?
+        h3 Admin
+        = link_to "Moderate Users",admin_users_path, class:"btn btn-danger"
+        hr
+      h5
+       = @user.email
 
 
-    -if current_user.tutos != 0
+
+    .col-xs-9
       .row
-        .col-xs-12
+        .col-xs-6
           h3 My own memos
+          -if current_user.tutos != 0
+            -current_user.tutos.each do |tuto|
+              li = link_to tuto.title, tuto_path(tuto)
 
-          -current_user.tutos.each do |tuto|
-            li = link_to tuto.title, tuto_path(tuto)
-
-        .col-xs-12
+        .col-xs-6
           h3 Bookmarked
 
           -current_user.liked_tutos.each do |tuto|
