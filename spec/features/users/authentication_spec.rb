@@ -1,14 +1,28 @@
 require "spec_helper"
 require "rails_helper"
 
-context "Logging In" do
+feature 'user can sign in' do
+  scenario 'when filling the form correctly' do
+    user = create(:user, email: 'nelly@email.com', password: 'password')
 
-  let!(:user){ User.create(first_name: "John", last_name: "Doe", email: "john@email.com", password:"password", password_confirmation:"password")
-}
-  it "logs the user in" do
-    visit "/en/users/login"
-    fill_in "user_email", with: "john@email.com"
-    fill_in "user_password", with: "password"
-    click_button "Sign in"
+    visit new_user_session_path
+    fill_in 'Email', with: 'nelly@email.com'
+    fill_in 'Password', with: 'password'
+    click_button 'Log in'
+
+    expect(page).to have_content('Signed in successfully.')
+  end
+end
+
+feature 'user can not sign in' do
+  scenario 'when not filling the form correctly' do
+    user = create(:user, email: 'nelly@email.com', password: 'password')
+
+    visit new_user_session_path
+    fill_in 'Email', with: 'nelly@email.com'
+    fill_in 'Password', with: 'wrong_password'
+    click_button 'Log in'
+
+    expect(current_path).to eq(new_user_session_path)
   end
 end
