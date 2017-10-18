@@ -61,24 +61,8 @@ group :development do
    gem "letter_opener"
 end
 
-group  :production do
+group :test, :production do
     gem 'pg'
-end
-
-group :test do
-  gem 'pg'
-  gem 'capybara-webkit'
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'simplecov', require: false
-  gem 'webmock'
-  gem 'faker'
-end
-
-source 'https://rails-assets.org' do
-  gem "rails-assets-underscore"
 end
 
 
