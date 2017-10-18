@@ -8,6 +8,12 @@
         .add-review
           button.btn.btn-primary.btn-xs[type="button" data-toggle="modal" data-target="#myModal"]
             | Comment & rate
+        = link_to tuto_likes_path(@tuto), method: :post do
+          span.glyphicon.glyphicon-heart.heart
+          span<>
+        / = link_to tuto_likes_path(@tuto),  data: { confirm: t("show.confirmation_delete")}, method: :delete do
+        /   span.glyphicon.glyphicon-star.star
+        /   span<>
       -else
         =link_to "Comment & rate", login_path, data: {confirm: "You need to be logged in to leave a comment"},class: "btn btn-xs btn-primary"
       hr
@@ -26,6 +32,10 @@
               = link_to t("show.button_delete"), tuto_path(@tuto), data: { confirm: t("show.confirmation_delete")}, method: :delete, class: "btn btn-danger"
             .col-xs-12.col-sm-2
               = link_to t("show.button_edit"), edit_tuto_path(@tuto), class: "btn btn-custom"
+
+
+
+
           / .col-xs-12.col-sm-2
           /   .add-review
           /     button.btn.btn-primary[type="button" data-toggle="modal" data-target="#myModal"]

@@ -1,6 +1,7 @@
 class Tuto < ActiveRecord::Base
   #acts_as_votable
   has_many :reviews, dependent: :destroy
+  has_many :likes
   belongs_to :user
   belongs_to :category
   validates :category_id, presence: true
@@ -9,6 +10,7 @@ class Tuto < ActiveRecord::Base
 
 
   scope :by_date, -> { order(created_at: :desc) }
+
 
   paginates_per 5
 
@@ -28,6 +30,5 @@ class Tuto < ActiveRecord::Base
     average = sum / reviews.count
     return average
   end
-
 end
 

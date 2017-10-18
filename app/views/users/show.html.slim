@@ -26,9 +26,14 @@
     -if current_user.tutos != 0
       .row
         .col-xs-12
-          h3 My list of tutorials & memos
+          h3 My own memos
 
           -current_user.tutos.each do |tuto|
-           li = link_to tuto.title, tuto_path(tuto)
-        .col-xs-4
+            li = link_to tuto.title, tuto_path(tuto)
+
+        .col-xs-12
+          h3 Bookmarked
+
+          -current_user.liked_tutos.each do |tuto|
+            li = link_to tuto.title, tuto_path(tuto)
 

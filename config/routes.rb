@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
     root "tutos#landing"
 
-    get "/best_voted", to: "tutos#best_voted"
+    # get "/best_voted", to: "tutos#best_voted"
 
     resources :tutos do
       resources :reviews, only: [:create, :destroy, :update , :edit]
@@ -23,11 +23,15 @@ Rails.application.routes.draw do
 
     resources :tutos, only: [:show]
 
-    # resources :tutos do
-    #   member do
-    #     put "like", to: "tutos#upvote"
-    #   end
-    # end
+    resources :users do
+      resources :tutos do
+        resources :likes
+      end
+    end
+
+   resources :tutos do
+      resources :likes
+    end
 
     namespace :users do
       resources :tutos

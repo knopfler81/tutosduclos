@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   after_create :send_welcome_email
   has_many :tutos
+  has_many :likes
+  has_many :liked_tutos, through: :likes, source: :tuto
 
   has_attachment :avatar
 
